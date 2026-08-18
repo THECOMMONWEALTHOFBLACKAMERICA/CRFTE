@@ -86,6 +86,21 @@ The entire V5 feasible region depends on whether atmospheric air can actually ac
 
 The next decisive step is therefore **V0.3: moving-air conductivity measurement**.
 
+### V0.3 prototype now documented
+
+The repository now includes a buildable stationary test-rig plan:
+
+- `docs/V0.3-PROTOTYPE-BUILD-GUIDE.md`
+
+The recommended first rig is approximately **1.2 m long**, with a **100 mm × 100 mm internal duct**, variable blower, flow straightener, removable enclosed plasma cassette, downstream temperature/velocity/impedance diagnostics, camera observation, E-stop, and enclosure interlock.
+
+Working planning budget:
+
+- **~$1,000–$1,800** for the mechanical duct/frame/basic sensors
+- **~$3,220–$5,600 total** if the enclosed plasma source and diagnostic instruments must also be purchased
+
+The rig intentionally treats the high-voltage plasma source as a professionally enclosed or institutional subsystem rather than a DIY pulser.
+
 Measure:
 
 - `σ_eff(t)` — bulk effective conductivity and decay
@@ -113,7 +128,8 @@ This project does **not** assume antigravity, inertia cancellation, zero-point e
 ## Repository contents
 
 - `docs/V4-V5-REVISED.md` — corrected interpretation and simulation summary
-- `docs/V0.3-CONDUCTIVITY-GATE.md` — next experimental decision protocol
+- `docs/V0.3-CONDUCTIVITY-GATE.md` — experimental decision protocol
+- `docs/V0.3-PROTOTYPE-BUILD-GUIDE.md` — stationary prototype build plan, BOM, test procedure, and decision gates
 - `data/` — reduced-order V4/V5 simulation outputs
 
 ## Current scientific conclusion
