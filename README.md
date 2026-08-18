@@ -8,7 +8,9 @@ The project originally explored counter-rotating toroidal plasmas, rotating liqu
 
 > **Can moving atmospheric air be maintained at roughly 60–150 S/m effective conductivity, at sufficiently low auxiliary power and heating, so that a low-slip traveling electromagnetic field can produce useful MHD thrust?**
 
-## Current baseline
+## Reduced-order research baseline
+
+The original propulsion sweeps use:
 
 - Vehicle gross mass: **450 kg**
 - Four lift modules
@@ -19,6 +21,38 @@ The project originally explored counter-rotating toroidal plasmas, rotating liqu
 - Air mass flow per module: **~19.9 kg/s**
 - Ideal induced power per module: **~30.57 kW**
 - Working power cap: **60 kW/module**
+
+This remains a research baseline only. It should **not** be presented as a complete two-seat aircraft mass estimate.
+
+## Hypothetical two-seat aircraft packaging baseline
+
+A separate packaging study now includes real room for two occupants, controls, avionics, batteries, thermal hardware, landing gear, environmental-control/oxygen hardware, and distributed propulsion zones.
+
+Use the following conceptual aircraft geometry going forward:
+
+- **Design gross mass:** 650 kg
+- **Length:** 6.2 m
+- **Wingspan:** 5.4 m
+- **Overall height:** 1.8 m
+- **Wing reference area:** ~11 m²
+- **Crew:** 2 side-by-side
+- **Cockpit internal envelope:** ~1.4 m wide × 2.2 m long × 1.2 m usable seated height
+- **Centerbody external width:** ~1.6 m
+- **Four active lift/propulsion regions:** ~1.2 m² each
+- **Total active lift area:** ~4.8 m²
+
+See `docs/HYPOTHETICAL-CRAFT-DESIGN.md` for the full dimension, cockpit, controls, environmental-control, and mass-budget discussion.
+
+At 650 kg the required hover thrust is ~1,594 N/module. Keeping only 0.60 m²/module would push the ideal induced power to ~53 kW/module before plasma/magnet/auxiliary losses, so the aircraft packaging study doubles active area to ~1.20 m²/module. At that area the ideal induced term is ~37.5 kW/module.
+
+At the earlier conditional V5 point (`sigma = 150 S/m`, `B = 1.8 T`) the re-sized 650 kg packaging case gives roughly:
+
+- required slip: **5.47 m/s**
+- Ohmic/slip power: **8.71 kW/module**
+- assumed auxiliary allowance: **5 kW/module**
+- modeled total: **~51.2 kW/module**
+
+This is still **conditional reduced-order math**, not a validated flight prediction, and requires a fresh V5 run if V0.3 succeeds.
 
 ## Key equations
 
@@ -67,7 +101,7 @@ The reduced-order model contains a feasible mathematical region. At `B = 1.8 T`,
 
 A stronger research target is approximately **80–150 S/m** to provide margin for conductivity ripple and unmodeled losses.
 
-Representative conditional point:
+Representative conditional point from the original 450 kg research baseline:
 
 - σ = 150 S/m
 - B = 1.8 T
@@ -88,18 +122,13 @@ The next decisive step is therefore **V0.3: moving-air conductivity measurement*
 
 ### V0.3 prototype now documented
 
-The repository now includes a buildable stationary test-rig plan:
+The repository includes a stationary test-rig plan:
 
 - `docs/V0.3-PROTOTYPE-BUILD-GUIDE.md`
 
 The recommended first rig is approximately **1.2 m long**, with a **100 mm × 100 mm internal duct**, variable blower, flow straightener, removable enclosed plasma cassette, downstream temperature/velocity/impedance diagnostics, camera observation, E-stop, and enclosure interlock.
 
-Working planning budget:
-
-- **~$1,000–$1,800** for the mechanical duct/frame/basic sensors
-- **~$3,220–$5,600 total** if the enclosed plasma source and diagnostic instruments must also be purchased
-
-The rig intentionally treats the high-voltage plasma source as a professionally enclosed or institutional subsystem rather than a DIY pulser.
+The current revision adds paired 10/20/30 m/s baselines, a 5×5 XY hot-wire velocity traverse, and 20/50/80 mm multi-length impedance measurements.
 
 Measure:
 
@@ -121,6 +150,12 @@ Measure:
 | Filamentary result | Use V4 failure model, not V5 bulk assumption |
 | Thermal/arc-only conductivity | Treat as a different hot-plasma architecture with its full thermal penalty |
 
+## Environmental-control / oxygen position
+
+The first terrestrial demonstrator should not carry a spacecraft-style regenerative oxygen system. The current packaging study reserves room for cabin recirculation, filtration, CO2 monitoring/scrubbing backup, humidity/temperature control, cabin pressure monitoring, and emergency supplemental oxygen.
+
+A true regenerative oxygen-generation/recovery system is a separate high-altitude/long-duration technology program. Early flight-test planning should remain below oxygen-requiring cabin-altitude regimes whenever possible.
+
 ## Research discipline
 
 This project does **not** assume antigravity, inertia cancellation, zero-point extraction, or spacetime manipulation. Counter-rotating toroidal plasma / spheromak / FRC concepts may still be investigated as field-topology tools, but any anomalous-force claim must survive subtraction of conventional J×B forces, ion wind, cable forces, magnetic coupling, vibration, acoustics, thermal expansion, and sensor drift.
@@ -129,7 +164,8 @@ This project does **not** assume antigravity, inertia cancellation, zero-point e
 
 - `docs/V4-V5-REVISED.md` — corrected interpretation and simulation summary
 - `docs/V0.3-CONDUCTIVITY-GATE.md` — experimental decision protocol
-- `docs/V0.3-PROTOTYPE-BUILD-GUIDE.md` — stationary prototype build plan, BOM, test procedure, and decision gates
+- `docs/V0.3-PROTOTYPE-BUILD-GUIDE.md` — stationary prototype build plan, BOM, paired baselines, XY traverse, and decision gates
+- `docs/HYPOTHETICAL-CRAFT-DESIGN.md` — corrected two-seat aircraft dimensions, controls, environmental-control/oxygen packaging, and 650 kg mass/area re-check
 - `data/` — reduced-order V4/V5 simulation outputs
 
 ## Current scientific conclusion
