@@ -2,6 +2,14 @@
 
 > **Status:** conceptual / reduced-order research. No working lift hardware has been demonstrated.
 
+## Project links
+
+- [Website and ecosystem status](PROJECT-LINKS.md)
+- [Commonwealth of Black America public record](https://github.com/THECOMMONWEALTHOFBLACKAMERICA/Commonwealth-of-Black-America)
+- [T.A.R. — The Akashic Records](https://github.com/THECOMMONWEALTHOFBLACKAMERICA/The-Akashic-record)
+
+No standalone CRFTE website has been verified or published yet; this repository remains the canonical public project location.
+
 This repository documents an ongoing investigation into a two-person eVTOL-scale atmospheric electromagnetic propulsion concept. The current working architecture is a **pre-ionized atmospheric flow + traveling electromagnetic field + Lorentz-force (J×B) momentum transfer** system.
 
 The project originally explored counter-rotating toroidal plasmas, rotating liquid metals, magnetic levitation, resonance, plasma propulsion, and artificial-dynamo analogies. The research has since converged on a much narrower and testable question:
