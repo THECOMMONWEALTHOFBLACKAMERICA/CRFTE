@@ -104,3 +104,11 @@ See [THE ARC and the Akashic Record](https://github.com/THECOMMONWEALTHOFBLACKAM
 9. bounded uncrewed test only after propulsion, structural and safety gates
 
 No crewed integration is authorized by this concept update.
+
+## V-2 integration note
+
+V5 remains the target vehicle and packaging reference. CRTFE V-2 is the next evidence-gated propulsion research architecture and is controlled separately in [V2-HYBRID-MHD-BASELINE.md](V2-HYBRID-MHD-BASELINE.md).
+
+For vessel integration, THE ARC and the Akashic Record are powered from redundant isolated avionics supplies with a dedicated emergency hold-up source sized by a bottom-up hardware budget. They do not provide propulsion energy. See [ARC-AKASHIC-VESSEL-INTEGRATION.md](ARC-AKASHIC-VESSEL-INTEGRATION.md).
+
+The V-2 electromagnetic release gate is staged in [V2-G2-ELECTROMAGNETIC-VALIDATION.md](V2-G2-ELECTROMAGNETIC-VALIDATION.md) so the protective shield, cryostat, supports, seams and fasteners are included in the installed field/loss validation before combined HTS operation.
