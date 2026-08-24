@@ -72,6 +72,7 @@ No vehicle-scale or flight claim is permitted until one full module closes the e
 4. Extend the coupled 1-D model to variable area and test it against measured pressure and velocity data.
 5. Freeze no magnet, shield, nozzle or vehicle allocation until the applicable gate passes.
 6. Use the Revision 1.2 ARC vessel contract only for non-executable ground-test intent; no flight or raw-actuator surface is released.
+7. Use the P2 electrical drawing set and integration manual to plan interfaces, segregation, hardwired safety and inspection; keep all unreleased HV/HTS ratings and conductor sizes `TBD`.
 
 ## Controlled references
 
@@ -80,3 +81,5 @@ No vehicle-scale or flight claim is permitted until one full module closes the e
 - [V0.3 conductivity gate](V0.3-CONDUCTIVITY-GATE.md)
 - [V-2 G2 electromagnetic validation](V2-G2-ELECTROMAGNETIC-VALIDATION.md)
 - [ARC/Akashic vessel integration](ARC-AKASHIC-VESSEL-INTEGRATION.md)
+- [P2 electrical integration specification](CRTFE-V2-ELECTRICAL-INTEGRATION-P2.md)
+- [P2 blueprint, schematic and manual index](BLUEPRINTS-AND-MANUAL.md)

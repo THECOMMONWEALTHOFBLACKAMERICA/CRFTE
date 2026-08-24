@@ -153,5 +153,12 @@ Controlled V-2 files:
 - [V-2 Revision P1.2 blueprint package](docs/blueprints/CRTFE_V-2_Hybrid_MHD_Baseline_Package.pdf)
 - [V-2 G2 electromagnetic verification and validation](docs/V2-G2-ELECTROMAGNETIC-VALIDATION.md)
 - [ARC and Akashic Record vessel integration](docs/ARC-AKASHIC-VESSEL-INTEGRATION.md)
+- [P2 electrical integration specification](docs/CRTFE-V2-ELECTRICAL-INTEGRATION-P2.md)
+- [P2 eight-sheet electrical wiring schematic set](docs/blueprints/CRTFE_V2_Electrical_Wiring_Schematic_Set_P2.pdf)
+- [P2 47-page integrated engineering, wiring and assembly manual](docs/manuals/CRTFE_V2_Integrated_Engineering_Assembly_Manual_P2.pdf)
+- [P2 Phase 1 grant and partnership presentation](docs/presentations/CRTFE_Phase_1_Grant_Presentation_P2.pptx)
+- [Blueprint, schematic and manual revision index](docs/BLUEPRINTS-AND-MANUAL.md)
+
+Revision P2 is a concept and ground-research release only. It does not release flight hardware, energized work, final conductor sizes, final connector pinouts, protection-device ratings or HV/HTS test limits.
 
 The Akashic Record is the signed knowledge and mission-memory layer. It is an avionics/compute electrical load, not the ship's energy source. ARC vessel integration Revision 1.4 adds regime-aware evidence retrieval, explicit contradiction mapping, explainable non-executable research plans and uncertainty-aware digital-twin comparison on top of Revision 1.3's persistent mediation service. Independent deterministic controls, hardwired safety protection and pilot authority remain outside ARC.

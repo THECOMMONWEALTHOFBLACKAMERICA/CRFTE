@@ -1,4 +1,36 @@
-# CRTFE V5 Blueprint and Manual Index
+# CRTFE Blueprint, Schematic and Manual Index
+
+## Current P2 controlled ground-research files
+
+- [V-2 electrical wiring schematic set P2](blueprints/CRTFE_V2_Electrical_Wiring_Schematic_Set_P2.pdf)
+  - 8 A3 blue-pencil graph sheets
+  - V0.3 system interconnect and hardwired safety chain
+  - G2 polyphase stator and HTS/stator validation architecture
+  - V5 energy-sled single-line concept
+  - ARC power/data/safety separation and harness-zone schedule
+
+- [V-2 integrated engineering, wiring and assembly manual P2](manuals/CRTFE_V2_Integrated_Engineering_Assembly_Manual_P2.pdf)
+  - 47 pages
+  - P2 assembly, wiring, inspection and commissioning controls
+  - retained 21-page V5 P0 mechanical/fastener baseline
+  - appended 8-sheet P2 electrical drawing set
+
+- [V-2 electrical integration source specification P2](CRTFE-V2-ELECTRICAL-INTEGRATION-P2.md)
+  - drawing index, interface schedule and cable classes
+  - assembly sequence, hold points and stop-work conditions
+  - explicit ARC/T.A.R. authority and energy boundary
+
+- [Phase 1 grant and partnership presentation P2](presentations/CRTFE_Phase_1_Grant_Presentation_P2.pptx)
+  - 14 simple page-by-page meeting slides
+  - $25,000 V0.3 controlled-test request
+  - Oklahoma Farm Bureau guidance, referral and grant-path ask
+
+### P2 release status
+
+- Controlled revision: P2 — 2026-08-24
+- Concept and ground-research architecture only
+- Not flight-ready and not a fabrication or energized-work release
+- Final conductor sizes, connector pinouts, protective-device ratings, HV/HTS values and live-test limits remain TBD until named hardware and responsible-engineer approval exist
 
 ## Current P0 controlled concept files
 
@@ -18,7 +50,7 @@
   - THE ARC and Akashic Record vessel architecture
   - development and verification gates
 
-## Revision status
+## P0 revision status
 
 - Revision: P0
 - Status: concept architecture / inert packaging prototype
