@@ -140,3 +140,17 @@ Current controlled concept files:
 > **The traveling-field branch has conditional reduced-order closure, contingent on an atmospheric-conductivity state that has not yet been demonstrated for this application.**
 
 The V5 aircraft is the project's **target vehicle**. The engineering program advances toward it only when each experimental gate is satisfied.
+
+## CRTFE V-2 hybrid research baseline
+
+V-2 is the next evidence-gated propulsion research architecture while V5 remains the target vehicle and packaging reference. It combines an HTS static bias field, a separately driven segmented traveling-wave stator, measured conductive-flow inputs, a finite-length channel, a variable-area nozzle, an external force balance and a field-compatible protective enclosure.
+
+The electromagnetic gate is now staged from numerical verification through bare-coil, installed-hardware, combined HTS/stator and plasma-loaded validation. Preliminary comparison objectives are not released acceptance criteria; final limits must be pre-registered from measurement uncertainty and design sensitivity.
+
+Controlled V-2 files:
+
+- [V-2 hybrid MHD baseline](docs/V2-HYBRID-MHD-BASELINE.md)
+- [V-2 G2 electromagnetic verification and validation](docs/V2-G2-ELECTROMAGNETIC-VALIDATION.md)
+- [ARC and Akashic Record vessel integration](docs/ARC-AKASHIC-VESSEL-INTEGRATION.md)
+
+The Akashic Record is the signed knowledge and mission-memory layer. It is an avionics/compute electrical load, not the ship's energy source. Independent deterministic controls, safety protection and pilot authority remain outside ARC.
