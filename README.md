@@ -154,4 +154,4 @@ Controlled V-2 files:
 - [V-2 G2 electromagnetic verification and validation](docs/V2-G2-ELECTROMAGNETIC-VALIDATION.md)
 - [ARC and Akashic Record vessel integration](docs/ARC-AKASHIC-VESSEL-INTEGRATION.md)
 
-The Akashic Record is the signed knowledge and mission-memory layer. It is an avionics/compute electrical load, not the ship's energy source. ARC vessel integration Revision 1.3 adds persistent replay protection, controlled policy snapshots and signed non-executable research decisions while retaining the Revision 1.2 ground-test-only contract. Independent deterministic controls, hardwired safety protection and pilot authority remain outside ARC.
+The Akashic Record is the signed knowledge and mission-memory layer. It is an avionics/compute electrical load, not the ship's energy source. ARC vessel integration Revision 1.4 adds regime-aware evidence retrieval, explicit contradiction mapping, explainable non-executable research plans and uncertainty-aware digital-twin comparison on top of Revision 1.3's persistent mediation service. Independent deterministic controls, hardwired safety protection and pilot authority remain outside ARC.

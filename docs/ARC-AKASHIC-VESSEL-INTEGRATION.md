@@ -1,6 +1,6 @@
 # CRTFE V-2 ARC and Akashic Record Vessel Integration
 
-> Controlled revision: 1.3 — 2026-08-24
+> Controlled revision: 1.4 — 2026-08-24
 > Requirement maturity: `DRAFT`
 > Status: provisional ground-research architecture. Not flight-ready avionics, not a fabrication release, and not authorization for autonomous actuator control.
 
@@ -12,7 +12,7 @@ The **Akashic Record** is T.A.R.'s signed, versioned, provenance-aware knowledge
 
 The Akashic Record and ARC are electrical loads. Their candidate power source is an isolated avionics supply plus separately protected emergency hold-up power. Propulsion energy remains outside the ARC/T.A.R. trust boundary.
 
-No numeric compute, converter, UPS, cooling, mass or volume allocation is released in Revision 1.3. Those values remain `TBD` until named hardware, duty cycles, environmental limits and verification data exist.
+No numeric compute, converter, UPS, cooling, mass or volume allocation is released in Revision 1.4. Those values remain `TBD` until named hardware, duty cycles, environmental limits and verification data exist.
 
 ## 2. Two-axis control system
 
@@ -206,6 +206,19 @@ Revision 1.3 adds an advanced research mediation layer in the Akashic repository
 
 Every outcome remains `executable = false` and requires the independent safety controller. The example policy remains `draft`, so it demonstrates schema only and cannot pass a review.
 
+Revision 1.4 adds an evidence-aware reasoning layer in `backend/app/arc_reasoning.py`:
+
+- physical-regime comparison across medium, pressure, temperature, ionization mechanism, geometry and time scale
+- default exclusion of incompatible-regime records while unknown applicability remains explicit
+- deterministic ranking that retains record IDs, hashes, sources, citations, evidence class, confidence and limitations
+- explicit contradiction edges, counterevidence and missing-dependency reporting
+- explainable advisory plans made only of evidence review, contradiction resolution, simulation, measurement and authorized-human-decision steps
+- digital-twin residuals with root-sum-square predicted/measured uncertainty
+- exact unit matching and explicit missing-metric reporting
+- `unassessed` status when a controlled test plan has not supplied an acceptance tolerance
+
+The ranking value is a search heuristic, not scientific probability. A digital-twin result within a supplied tolerance is analysis only, not a safety pass. Every brief, plan, plan step and comparison remains `executable = false`; no new actuator, HV, contactor, quench, flight-control or safety-approval interface is added.
+
 ## 9. Security requirements
 
 - secure boot and signed releases
@@ -233,6 +246,8 @@ Cryptographic audit failure must be visible. It must not delay or disable indepe
 | A4 Replay | Persistent nonce and monotonic sequence; duplicates and rollback rejected | SQL persistence and restart tests implemented; protected anti-rollback deployment `TBD` |
 | A5 Knowledge | Existing hash chain, signature, evidence and falsification rules remain intact | Existing tests retained |
 | A5A Decisions | Canonical request binding, signed decision persistence and tamper detection | HMAC research prototype implemented/tested; production signing profile `TBD` |
+| A5B Evidence reasoning | Ledger verification, regime filtering, source/hash traceability and explicit contradictions | Deterministic implementation and unit tests complete; independent validation `TBD` |
+| A5C Digital twin | Unit-safe residuals, propagated uncertainty and pre-registered comparison tolerance | Analysis implementation and unit tests complete; model/test releases and acceptance criteria `TBD` |
 | A6 Power | Named hardware and measured normal/peak/startup/degraded/emergency loads | `TBD` |
 | A7 Thermal | Closed electrical/thermal boundaries and representative-condition test | `TBD` |
 | A8 Electrical | FMEA/FTA, selectivity and common-cause analysis | `TBD` |
@@ -255,6 +270,6 @@ DAL and certification basis remain `TBD` pending the intended operational role a
 
 ## 12. Release statement
 
-Revision 1.3 is accepted as a **controlled provisional ground-research baseline** only.
+Revision 1.4 is accepted as a **controlled provisional ground-research baseline** only.
 
 It does not validate propulsion, flight, HTS, cryogenic, electrical, thermal, software-assurance or certification feasibility. It authorizes no energized experiment and no flight test. Advancement requires the applicable evidence gate, qualified facilities, independent review and controlled release.
