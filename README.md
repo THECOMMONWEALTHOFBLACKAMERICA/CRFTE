@@ -128,6 +128,12 @@ THE ARC may plan and request actions under authenticated human command, but it h
 
 See [V5 Energy Sled, Protective Shield and THE ARC Update](docs/V5-ENERGY-SLED-ARC-UPDATE.md).
 
+Current controlled concept files:
+
+- [A3 blue-pencil graph drawing set](docs/blueprints/CRTFE_V5_Blue_Pencil_Graph_Drawing_Set.pdf)
+- [V5 energy-sled engineering and assembly manual](docs/manuals/CRTFE_V5_Energy_Sled_Preliminary_Engineering_Manual.pdf)
+- [Blueprint and manual revision index](docs/BLUEPRINTS-AND-MANUAL.md)
+
 
 ## Current scientific conclusion
 
