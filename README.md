@@ -110,6 +110,25 @@ The V0.3 rig uses a 100 mm × 100 mm test duct, paired 10/20/30 m/s plasma-OFF b
 - `docs/V0.3-PROTOTYPE-BUILD-GUIDE.md` — stationary prototype plan, BOM and paired-baseline measurement protocol
 - `data/` — reduced-order V4/V5 simulation outputs
 
+
+## V5 energy sled, protective shield and THE ARC
+
+The target-vehicle architecture now includes:
+
+- a removable ventral keel energy sled at/near the center of gravity
+- a preliminary 1.45 m x 1.05 m x 0.34 m maximum packaging envelope
+- a multi-layer replaceable keel shield with standoff, anti-penetration, crush and fire/thermal layers
+- guarded down/aft venting, drainage, impact sensing, dry-break cooling and isolated HV interfaces
+- an inert-mockup assembly sequence and candidate fastener study
+- A3 graph-paper general-arrangement drawings using only supported project dimensions
+- **THE ARC**, a bounded vessel AI orchestration architecture
+- T.A.R.'s signed/versioned **Akashic Record** knowledge layer
+
+THE ARC may plan and request actions under authenticated human command, but it has no raw actuator authority. Independent deterministic flight/safety controllers validate and execute any bounded request, and pilot/manual reversion remains available.
+
+See [V5 Energy Sled, Protective Shield and THE ARC Update](docs/V5-ENERGY-SLED-ARC-UPDATE.md).
+
+
 ## Current scientific conclusion
 
 > **The traveling-field branch has conditional reduced-order closure, contingent on an atmospheric-conductivity state that has not yet been demonstrated for this application.**
