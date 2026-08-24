@@ -150,6 +150,7 @@ The electromagnetic gate is now staged from numerical verification through bare-
 Controlled V-2 files:
 
 - [V-2 hybrid MHD baseline](docs/V2-HYBRID-MHD-BASELINE.md)
+- [V-2 Revision P1.2 blueprint package](docs/blueprints/CRTFE_V-2_Hybrid_MHD_Baseline_Package.pdf)
 - [V-2 G2 electromagnetic verification and validation](docs/V2-G2-ELECTROMAGNETIC-VALIDATION.md)
 - [ARC and Akashic Record vessel integration](docs/ARC-AKASHIC-VESSEL-INTEGRATION.md)
 
