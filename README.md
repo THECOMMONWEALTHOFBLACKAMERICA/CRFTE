@@ -141,7 +141,7 @@ Current controlled concept files:
 
 The V5 aircraft is the project's **target vehicle**. The engineering program advances toward it only when each experimental gate is satisfied.
 
-## CRTFE V-2 hybrid research baseline
+## CRTFE V-2 hybrid research baseline — Revision 1.2
 
 V-2 is the next evidence-gated propulsion research architecture while V5 remains the target vehicle and packaging reference. It combines an HTS static bias field, a separately driven segmented traveling-wave stator, measured conductive-flow inputs, a finite-length channel, a variable-area nozzle, an external force balance and a field-compatible protective enclosure.
 
@@ -153,4 +153,4 @@ Controlled V-2 files:
 - [V-2 G2 electromagnetic verification and validation](docs/V2-G2-ELECTROMAGNETIC-VALIDATION.md)
 - [ARC and Akashic Record vessel integration](docs/ARC-AKASHIC-VESSEL-INTEGRATION.md)
 
-The Akashic Record is the signed knowledge and mission-memory layer. It is an avionics/compute electrical load, not the ship's energy source. Independent deterministic controls, safety protection and pilot authority remain outside ARC.
+The Akashic Record is the signed knowledge and mission-memory layer. It is an avionics/compute electrical load, not the ship's energy source. Revision 1.2 separates claim evidence from requirement maturity and restricts the coded vessel-intent contract to non-executable ground-test modes. Independent deterministic controls, hardwired safety protection and pilot authority remain outside ARC.

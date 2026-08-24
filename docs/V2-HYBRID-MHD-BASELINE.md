@@ -1,6 +1,6 @@
 # CRTFE V-2 Hybrid MHD Research Baseline
 
-> Revision P1 — 2026-08-24  
+> Revision P1.2 — 2026-08-24
 > Status: controlled preliminary research architecture. Not a fabrication drawing, flight release, or claim of demonstrated propulsion.
 
 ## Configuration decision
@@ -45,6 +45,8 @@ Every project number or claim must be labeled as one of:
 
 Results from different pressure, temperature, ionization, seeding, plasma, geometry or time regimes may not be mixed without an explicit transfer model.
 
+Evidence class and requirement maturity are separate. Requirements progress through `DRAFT`, `ALLOCATED`, `APPROVED`, `IMPLEMENTED`, `VERIFIED` and `VALIDATED`. A draft architecture or schema is not `DERIVED` physical evidence.
+
 ## Model and experiment gates
 
 | Gate | Minimum pass evidence |
@@ -69,6 +71,7 @@ No vehicle-scale or flight claim is permitted until one full module closes the e
 3. Measure `sigma(x,t)` and real auxiliary power in the selected non-flight test regime.
 4. Extend the coupled 1-D model to variable area and test it against measured pressure and velocity data.
 5. Freeze no magnet, shield, nozzle or vehicle allocation until the applicable gate passes.
+6. Use the Revision 1.2 ARC vessel contract only for non-executable ground-test intent; no flight or raw-actuator surface is released.
 
 ## Controlled references
 
@@ -77,4 +80,3 @@ No vehicle-scale or flight claim is permitted until one full module closes the e
 - [V0.3 conductivity gate](V0.3-CONDUCTIVITY-GATE.md)
 - [V-2 G2 electromagnetic validation](V2-G2-ELECTROMAGNETIC-VALIDATION.md)
 - [ARC/Akashic vessel integration](ARC-AKASHIC-VESSEL-INTEGRATION.md)
-
