@@ -1,6 +1,6 @@
 # CRTFE V-2 ARC and Akashic Record Vessel Integration
 
-> Controlled revision: 1.2 — 2026-08-24
+> Controlled revision: 1.3 — 2026-08-24
 > Requirement maturity: `DRAFT`
 > Status: provisional ground-research architecture. Not flight-ready avionics, not a fabrication release, and not authorization for autonomous actuator control.
 
@@ -12,7 +12,7 @@ The **Akashic Record** is T.A.R.'s signed, versioned, provenance-aware knowledge
 
 The Akashic Record and ARC are electrical loads. Their candidate power source is an isolated avionics supply plus separately protected emergency hold-up power. Propulsion energy remains outside the ARC/T.A.R. trust boundary.
 
-No numeric compute, converter, UPS, cooling, mass or volume allocation is released in Revision 1.2. Those values remain `TBD` until named hardware, duty cycles, environmental limits and verification data exist.
+No numeric compute, converter, UPS, cooling, mass or volume allocation is released in Revision 1.3. Those values remain `TBD` until named hardware, duty cycles, environmental limits and verification data exist.
 
 ## 2. Two-axis control system
 
@@ -44,7 +44,7 @@ Project drawings and calculations may additionally display `MEASURED`, `DERIVED`
 | `VERIFIED` | Objective evidence shows the implementation meets the requirement |
 | `VALIDATED` | Evidence shows the requirement and implementation are suitable for the intended use |
 
-Revision 1.2 vessel requirements remain `DRAFT` unless an individual row explicitly says otherwise.
+Revision 1.3 vessel requirements remain `DRAFT` unless an individual row explicitly says otherwise.
 
 ## 3. Authority and safety boundary
 
@@ -191,13 +191,26 @@ Revision 1.2 adds `backend/app/arc_vessel_contracts.py` as a non-actuating contr
 - canonical serialization and SHA-256 request digest
 - `review_vessel_intent`, which refuses acceptance without persistent nonce and issuer-sequence state
 
-The module intentionally exposes no actuator, HV, contactor, quench, flight-control or safety-approval API. It is not mounted as a production endpoint in Revision 1.2.
+The module intentionally exposes no actuator, HV, contactor, quench, flight-control or safety-approval API.
+
+Revision 1.3 adds an advanced research mediation layer in the Akashic repository:
+
+- persistent, workspace-scoped nonce hashes and per-issuer sequence state
+- configuration-controlled policy snapshots with separate requirement maturity
+- coarse `GroundSafetyContext` assertions without raw sensor values or limits
+- explicit request/context validity-window, identity, configuration, envelope, test-plan and interlock checks
+- signed HMAC-SHA-256 prototype decisions bound to the canonical request digest
+- persistent decision lookup and signature verification
+- Alembic migration `0007_arc_vessel_research`
+- an authenticated `/v1/arc/vessel-research/*` API that is disabled by default and prohibited on the production host
+
+Every outcome remains `executable = false` and requires the independent safety controller. The example policy remains `draft`, so it demonstrates schema only and cannot pass a review.
 
 ## 9. Security requirements
 
 - secure boot and signed releases
 - hardware-protected identity/key material where the threat model requires it
-- explicit canonicalization and algorithm profiles before signed vessel decisions are implemented
+- explicit canonicalization and algorithm profiles; production asymmetric signing and key custody remain required before a decision can become safety evidence
 - key generation, rotation, revocation, recovery and compromise response
 - least privilege and network segmentation
 - persistent anti-replay state protected against rollback
@@ -217,8 +230,9 @@ Cryptographic audit failure must be visible. It must not delay or disable indepe
 | A1 Contract | Schema rejects extra fields, raw limits and flight modes | Implemented/tested in repository |
 | A2 Non-execution | Every vessel review returns `executable = false` | Implemented/tested in repository |
 | A3 Time | Explicit timezone-aware issue/expiry window; no invented default TTL | Implemented/tested in repository |
-| A4 Replay | Persistent nonce and monotonic sequence supplied by caller; duplicates rejected | Contract tested; durable store `TBD` |
+| A4 Replay | Persistent nonce and monotonic sequence; duplicates and rollback rejected | SQL persistence and restart tests implemented; protected anti-rollback deployment `TBD` |
 | A5 Knowledge | Existing hash chain, signature, evidence and falsification rules remain intact | Existing tests retained |
+| A5A Decisions | Canonical request binding, signed decision persistence and tamper detection | HMAC research prototype implemented/tested; production signing profile `TBD` |
 | A6 Power | Named hardware and measured normal/peak/startup/degraded/emergency loads | `TBD` |
 | A7 Thermal | Closed electrical/thermal boundaries and representative-condition test | `TBD` |
 | A8 Electrical | FMEA/FTA, selectivity and common-cause analysis | `TBD` |
@@ -241,6 +255,6 @@ DAL and certification basis remain `TBD` pending the intended operational role a
 
 ## 12. Release statement
 
-Revision 1.2 is accepted as a **controlled provisional ground-research baseline** only.
+Revision 1.3 is accepted as a **controlled provisional ground-research baseline** only.
 
 It does not validate propulsion, flight, HTS, cryogenic, electrical, thermal, software-assurance or certification feasibility. It authorizes no energized experiment and no flight test. Advancement requires the applicable evidence gate, qualified facilities, independent review and controlled release.
