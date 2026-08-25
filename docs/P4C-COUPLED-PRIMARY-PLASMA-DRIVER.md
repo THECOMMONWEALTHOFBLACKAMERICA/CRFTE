@@ -157,6 +157,32 @@ capacitor / transformer forward pulse
 
 This is consistent with prior pulsed-inductive propulsion work that uses diode clamping, pulse-compression, and energy-recovery circuits. It does not prove a 3 kHz aircraft implementation.
 
+## Recovery sensitivity
+
+The 7.5 us operating point is much less sensitive to an optimistic recovery assumption than the shorter pulse because little magnetic energy remains when the pulse is clamped.
+
+For the representative `k=0.8`, `tau_sigma=5 us`, 7.5 us point:
+
+```text
+primary + plasma resistive loss ≈ 4.30 J/module/pulse
+residual magnetic energy at clamp ≈ 1.15 J/module
+```
+
+Across four modules at 3 kHz, modeled EM loss becomes approximately:
+
+| Residual magnetic-energy recovery | Four-module EM loss |
+|---:|---:|
+| 30% | ~61 kW |
+| 50% | ~58 kW |
+| 80% | ~54 kW |
+| 90% | ~53 kW |
+| 95% | ~52 kW |
+| 98% | ~52 kW |
+
+This is important because published diode-clamping tests in inductive pulsed-plasma circuits reported recapture efficiencies only in the ~20–30% range for the specific circuits tested. P4C should therefore not rely on 98% recovery as an established capability.
+
+The present result survives that correction because pulse timing was chosen to leave little recoverable field energy at the clamp point.
+
 ## Important comparison to existing pulsed-power hardware
 
 Published inductive-pulsed-plasma work has demonstrated pulsed-power hardware at approximately 3.3 kV, 20 kA peak current, and 15 kA/us switching rate with a recovery-oriented pulse-compression-ring circuit. P4C's representative primary pulse is therefore not outside the known *instantaneous* voltage/current class.
@@ -184,7 +210,7 @@ per module, representative:
 clamp/recovery before current reversal
 ```
 
-At the `k=0.8`, decaying-conductivity, ~7.5 us point, the model places electromagnetic dissipation/recovery penalty near **52 kW across all four modules**. This leaves only about 28 kW if the earlier P4 provisional 80 kW plasma+EM-overhead allowance is retained.
+At the `k=0.8`, decaying-conductivity, ~7.5 us point, the model places electromagnetic dissipation/recovery penalty near **52–61 kW across all four modules** for 98% down to 30% residual-field recovery. If the earlier P4 provisional 80 kW plasma+EM-overhead allowance is retained, that leaves approximately **19–28 kW** for plasma creation.
 
 Therefore the next decisive question is still plasma-source efficiency: can the required broad transient conductivity be created for roughly tens of kilowatts total rather than hundreds of kilowatts or megawatts?
 
