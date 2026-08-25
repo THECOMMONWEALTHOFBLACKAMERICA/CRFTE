@@ -163,6 +163,44 @@ Segmenting the duct does not create free force. Its value is:
 
 That keeps the design conceptually close to an electronic linear motor acting directly on air.
 
+## P4A current-drive refinement — asymmetric induction
+
+The current-injection problem has now been separated from the propulsion magnetic-field problem.
+
+Instead of requiring either exposed plasma-contact electrodes or a multi-tesla traveling AC stator, P4A investigates:
+
+```text
+small fast-changing induction flux -> transverse closed plasma-current loop
+strong stationary HTS B0          -> J x B0 propulsion force
+```
+
+Representative reduced-order result for the same 650 kg target:
+
+```text
+B0 = 8 T static
+sigma_on = 800 S/m
+f = 3 kHz
+tau = 5 us
+D = 0.015
+J_on = 22.1 kA/m^2
+induced propulsion E = 27.7 V/m
+illustrative 2 m loop EMF = 55.4 V
+illustrative linked area = 0.10 m^2
+required fast drive-field swing ~= 2.77 mT
+P_J ~= 22.1 kW
+```
+
+The millitesla-scale number is a **reduced-order loop-EMF estimate**, not a coil design. Plasma-loop inductance, mutual coupling, Hall effects, field penetration, return-current geometry, and HTS AC loss may increase it substantially.
+
+P4A uses a fast forward flux ramp while conductivity is useful and resets transformer flux only after effective conductivity decays or the packet advects away. This can suppress reverse `J x B0` impulse without putting net charge through dielectric walls.
+
+A closed current loop in a uniform field has zero net force, so the return-current leg must close through a low-field region; finite-field geometry is a mandatory next-model feature.
+
+See:
+
+- `docs/P4A-ASYMMETRIC-INDUCTIVE-CURRENT-DRIVE.md`
+- `tools/asymmetric_inductive_current_drive.py`
+
 ## Current primary architecture
 
 ```text
@@ -190,12 +228,16 @@ The next goal-aligned model should couple one cell's:
 ```text
 plasma source energy
 σ(t)
-current waveform
-surface/sheath charging
+plasma-loop R(t) and L
+primary/secondary mutual inductance
+small drive-flux waveform
+stationary B0 field map
+return-leg leakage field
 J × B force
 neutral momentum transfer
 gas temperature
-recovered reactive electrical energy
+flux-reset reverse impulse
+HTS AC loss
 ```
 
 and then tile that verified cell across the four-module aircraft geometry.
@@ -208,4 +250,6 @@ See:
 
 - `tools/goal_aligned_synchronous_lorentz.py`
 - `tools/segmented_cell_pulse_budget.py`
+- `tools/asymmetric_inductive_current_drive.py`
+- `docs/P4A-ASYMMETRIC-INDUCTIVE-CURRENT-DRIVE.md`
 - `docs/PROJECT-GOAL-LOCK-P4.md`
