@@ -1,0 +1,4 @@
+run_id,stage,excitation_family,airflow_m_s,geometry_id,measurement_length_mm,input_real_power_W,conductivity_S_m,conductivity_method,gas_temp_C,wall_temp_C,pressure_change_Pa,velocity_change_m_s,optical_state,persistence_ms,repeat_index,uncertainty_notes,arc_or_filament_fraction,energy_per_useful_volume,decision,next_configuration_reason
+P3-BASE-001,A,OFF,10,BASE,20,,,,,,,,baseline,,1,,,,BASELINE,Validate instrumentation
+P3-BASE-002,A,OFF,20,BASE,50,,,,,,,,baseline,,1,,,,BASELINE,Validate instrumentation
+P3-BASE-003,A,OFF,30,BASE,80,,,,,,,,baseline,,1,,,,BASELINE,Validate instrumentation
