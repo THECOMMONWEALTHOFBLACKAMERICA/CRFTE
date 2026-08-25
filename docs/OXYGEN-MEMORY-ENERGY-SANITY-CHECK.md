@@ -60,39 +60,72 @@ This is a decisive result for the open-flow chemistry branch:
 
 The carrier-memory idea therefore cannot rely on bulk O2 dissociation of the complete hover stream.
 
+## Correction to the small-driver-stream idea
+
+A small conditioned plasma driver was considered as a way to avoid ionizing most of the atmospheric mass flow. Momentum theory shows why this does not solve hover power.
+
+For the current 650 kg / 4.8 m^2 target, the ideal actuator-disk mass flow is approximately:
+
+```text
+m_dot ~ rho A v_i ~ 137 kg/s
+```
+
+If only a fraction `f` of that mass initially carries the full vehicle momentum, its minimum kinetic-power requirement is approximately:
+
+```text
+P_driver,min = F^2 / (2 f m_dot)
+```
+
+so:
+
+| Initial momentum-carrying mass fraction | Ideal driver kinetic-power floor |
+|---:|---:|
+| 100% | ~148 kW |
+| 50% | ~297 kW |
+| 20% | ~742 kW |
+| 10% | ~1.48 MW |
+| 1% | ~14.8 MW |
+
+An ejector/entrainment stage can redistribute that momentum into more air, but it cannot erase the kinetic energy already required to put the momentum into a small driver stream; real mixing adds loss.
+
+**Therefore a tiny plasma driver stream is not a low-power escape route for hover.** CRTFE still needs electromagnetic coupling to a large effective atmospheric mass flow if it wants rotor-like induced-power scaling.
+
 ## What remains viable to investigate
 
 The chemistry branch survives only if at least one of the following is true:
 
-1. the required O/metastable fraction is orders of magnitude below percent-level dissociation;
-2. the active chemical/plasma volume is a small driver fraction rather than the full thrust-producing airflow;
-3. the chemical reservoir is recirculated rather than rebuilt from fresh air;
-4. a catalytic / associative-ionization pathway maintains seed electrons with much lower energy than bulk O2 bond breaking;
-5. the flow is operated in a different pressure/temperature regime where carrier lifetime improves enough that little chemical conditioning is required.
+1. the required chemical-memory fraction is far below percent-level O2 dissociation;
+2. naturally long-lived ion/metastable channels provide useful **time-integrated conductivity** without requiring bulk dissociation;
+3. associative-ionization / detachment pathways maintain carriers with far less energy than rebuilding ion pairs from neutral gas;
+4. a pressure/temperature state is created as part of the aerodynamic acceleration itself, extending carrier lifetime without a separate vacuum-energy penalty;
+5. another field/current topology uses the long-lived ion current directly rather than requiring electron-dominated conductivity throughout the force pulse.
 
-## New architecture implication
+## Revised architecture implication
 
-The strongest remaining branch is no longer "chemically condition all the air."
+The design objective is no longer to move the plasma problem into a small driver stream. Instead it is:
 
-A more defensible direction is a **two-fluid / driver-stream architecture**:
+> **Find the lowest-energy way to give a large atmospheric mass flow enough time-integrated transverse conductivity for a strong static magnetic field to apply the required axial impulse.**
+
+That shifts the theoretical metric from peak conductivity to the integrated conductivity of *all* charge carriers:
 
 ```text
-small conditioned plasma driver stream
-    -> strong static-field Lorentz acceleration
-    -> momentum transfer / entrainment into a much larger neutral-air stream
-    -> large-area low-exhaust-velocity thrust
+K_sigma = integral sigma(t) dt
+        = e * sum_s integral n_s(t) mu_s(t) dt
 ```
 
-This separates the expensive electromagnetic/plasma medium from the majority of the atmospheric working mass. It does not evade conservation of momentum or the actuator-disk power floor; its value would depend on whether driver-stream plasma power plus entrainment/mixing loss is lower than bulk-air ionization cost.
+Long-lived positive and negative ions may materially contribute even when free electrons have attached, because their much longer lifetimes can partly compensate for their much lower mobilities.
 
 ## Next calculation
 
-Compare, on the same force basis:
+The next model must include:
 
-- full-stream atmospheric MHD;
-- chemically conditioned full-stream MHD;
-- low-pressure / low-density plasma driver + neutral-air ejector;
-- recirculating seeded plasma driver + neutral-air entrainment;
-- conventional electric rotor/ducted-fan lower bound.
+- electron conductivity spike;
+- O2-/O-/O3- negative-ion tails;
+- O2+/NO+ positive-ion tails;
+- measured/estimated ion mobilities;
+- chemical detachment / associative-ionization memory;
+- total `integral sigma dt` per deposited joule;
+- Lorentz impulse per deposited joule;
+- static-field structural penalty.
 
-The correct metric is total electrical power and installed mass for a required thrust, not plasma thrust efficiency alone.
+The correct metric is total electrical power and installed mass for required thrust, not plasma thrust efficiency alone.
