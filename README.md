@@ -1,6 +1,6 @@
 # CRFTE / CRTFE Atmospheric Electromagnetic Propulsion Research
 
-> **Status:** theoretical / reduced-order research with ground experimentation on hold pending P4 model consolidation. No working lift hardware has been demonstrated.
+> **Current status:** theoretical / reduced-order research with a **grant-scale P4E proof-of-physics experiment now defined**. No working lift hardware or flight vehicle has been demonstrated.
 
 ## Project links
 
@@ -8,34 +8,32 @@
 - [Commonwealth of Black America public record](https://github.com/THECOMMONWEALTHOFBLACKAMERICA/Commonwealth-of-Black-America)
 - [T.A.R. — The Akashic Records](https://github.com/THECOMMONWEALTHOFBLACKAMERICA/The-Akashic-record)
 
-No standalone CRFTE website has been verified or published yet; this repository remains the canonical public project location.
+This repository remains the canonical public CRTFE project location.
 
 ## Project goal — locked
 
-CRTFE remains a **large-area, no-moving-parts atmospheric electromagnetic propulsion research program** with a two-person VTOL/wingborne aircraft as the long-range application.
+CRTFE remains a **large-area, no-moving-parts atmospheric electromagnetic propulsion research program** with a two-person VTOL / wingborne aircraft as the long-range application.
 
 The core objective is unchanged:
 
 > **Transfer electromagnetic momentum directly into a large atmospheric-air mass flow without conventional rotors, propellers, turbines or mechanical compressors.**
 
-Recent literature review and reduced-order simulation are being used to avoid re-testing established plasma/MHD physics and to identify which CRTFE-specific coupling problem actually requires experiment.
-
 See: [P4 Project Goal Lock](docs/PROJECT-GOAL-LOCK-P4.md).
 
-## Current primary theoretical branch — P4
+## Current program structure
 
-The main branch is now a **full-stream segmented synchronous Lorentz duct**:
+### P4 — vehicle-scale primary architecture
 
-1. atmospheric air enters the active duct;
-2. a strong stationary magnetic field is established by an HTS/high-field system;
-3. conductivity is produced in controlled spatial/temporal windows;
-4. a transverse current/electric drive is synchronized with those windows;
-5. `J × B` transfers momentum directly to the full atmospheric stream;
-6. segmented cells distribute and commutate the interaction without requiring the entire multi-tesla magnetic field to travel.
+The goal-aligned architecture remains a full-stream Lorentz interaction using:
 
-This stays close to the original CRTFE concept while correcting a key modeling issue: the large static HTS bias field and the amplitude of a traveling magnetic field cannot automatically be treated as the same `B` in the old V5 `B²` relation.
+1. atmospheric air as the external working mass;
+2. a strong stationary magnetic field;
+3. controlled transient conductivity;
+4. synchronized transverse current;
+5. direct `J × B` body-force transfer;
+6. segmentation / commutation rather than a required multi-tesla traveling propulsion field.
 
-### Goal-aligned reduced-order model
+Reduced-order anchor:
 
 ```text
 F = D σ_on E_drive B_static V
@@ -43,9 +41,7 @@ F = D σ_on E_drive B_static V
 P_J = F² / (σ_eff B_static² V)
 ```
 
-Segmentation can improve timing, commutation, localization and energy recovery, but does not by itself remove the average `D σ_on` requirement.
-
-For the current 650 kg target with `A = 4.8 m²`, `L = 0.5 m`, `V = 2.4 m³`:
+For the long-range 650 kg vehicle reference with `A = 4.8 m²`, `L = 0.5 m`, and `V = 2.4 m³`:
 
 ```text
 hover thrust ≈ 6.38 kN
@@ -53,126 +49,158 @@ ideal hover induced velocity ≈ 23.3 m/s
 ideal fluid-power floor ≈ 148.5 kW
 ```
 
-If the active-gas Joule/slip allowance is provisionally limited to 50 kW, the reduced-order effective-conductivity requirement is approximately:
+These remain screening values, not demonstrated vehicle performance.
 
-| Static field | Required effective conductivity |
-|---:|---:|
-| 3 T | ~37.6 S/m |
-| 5 T | ~13.6 S/m |
-| 8 T | ~5.3 S/m |
+### P4A / P4B / P4C — current-drive refinement
 
-These are screening values, not demonstrated results.
+The present current-drive research separates the large static propulsion field from a smaller pulsed field used only to establish current.
 
-## New plasma-source figure of merit
+- **P4A:** asymmetric inductive current drive;
+- **P4B:** bipolar `+B/-B` static pole geometry so opposite legs of a closed plasma-current loop contribute same-direction Lorentz force;
+- **P4C:** coupled primary capacitor / transformer / plasma-loop circuit with active clamping before reverse impulse.
 
-Peak conductivity alone is no longer the optimization target.
+See:
 
-For each plasma pulse define:
+- [P4A asymmetric inductive current drive](docs/P4A-ASYMMETRIC-INDUCTIVE-CURRENT-DRIVE.md)
+- [P4A simulation correction](docs/P4A-SIMULATION-CORRECTION.md)
+- [P4B bipolar static-pole inductive loop](docs/P4B-BIPOLAR-STATIC-POLE-INDUCTIVE-LOOP.md)
+- [P4C coupled primary / plasma driver](docs/P4C-COUPLED-PRIMARY-PLASMA-DRIVER.md)
+
+### P4D — high-PRF vibrational conductivity branch
+
+Literature and reduced-order analysis shifted the plasma question away from a low-duty-cycle 3 kHz assumption and toward:
+
+- tens to hundreds of kHz repetitive nanosecond excitation;
+- plasma-memory effects;
+- sub-breakdown RF vibrational conditioning;
+- suppression of rapid oxygen attachment;
+- explicit treatment of electron-ion recombination.
+
+See [P4D High-PRF Vibrational Conductivity Research](docs/P4D-HIGH-PRF-VIBRATIONAL-CONDUCTIVITY-RESEARCH.md).
+
+## P4E — current grant-scale experiment
+
+The immediate funding target is **not a vehicle build**.
+
+P4E asks a falsifiable laboratory question:
+
+> **Does high-repetition-rate nanosecond ionization combined with sub-breakdown RF vibrational conditioning materially increase the conductivity-time integral and polarity-reversible Lorentz momentum transfer of low-temperature atmospheric air per electrical joule?**
+
+The central screening experiment uses approximately:
 
 ```text
-K_sigma = integral[σ(t) dt]
-ε_p = deposited plasma-source energy density per pulse
-R_p = ε_p / K_sigma
+active interaction volume: ~50 cm^3
+flowing atmospheric air
+ns repetition rate: 40–100 kHz
+RF conditioning: ON/OFF controlled comparison
+magnetic field: ~1.5–2.0 T laboratory scale
+independently characterized current drive
+synchronized plasma / electrical / thermal diagnostics
+mN-class force or equivalent momentum measurement
 ```
 
-Lower `R_p` is better: it measures how much energy must be paid for useful conductivity-time.
+Primary go/no-go gates:
 
-For periodic pulsing:
+- `>=10x` increase in conductivity-time integral with RF conditioning at matched ns-pulse energy;
+- bulk gas temperature rise `<150 K` in the controlled comparison;
+- distributed conductivity `>=0.01 S/m` without arc-dominated operation;
+- `>=3 mN` polarity-reversible force signal;
+- measured force consistent with independently reconstructed `integral(J × B)dV` within experimental uncertainty;
+- `>=5x` improvement in Lorentz impulse per plasma-conditioning joule versus the nanosecond-only baseline.
+
+The reduced-order model predicts a conditioned test region in the **mN** range rather than requiring a vehicle-scale force demonstration. The experiment is designed to identify whether attachment, recombination, nonuniformity, thermal deposition or another loss mechanism prevents further scaling.
+
+### Grant package
+
+- [P4E submission package index](funding/P4E-SUBMISSION-PACKAGE.md)
+- [P4E technical abstract](funding/P4E-GRANT-ABSTRACT.md)
+- [P4E specific aims and milestones](funding/P4E-SPECIFIC-AIMS-AND-MILESTONES.md)
+- [P4E budget and facilities template](funding/P4E-BUDGET-AND-FACILITIES-TEMPLATE.md)
+- [P4E readiness checklist](funding/P4E-READINESS-CHECKLIST.md)
+- [P4E grant-scale simulation](docs/P4E-GRANT-SCALE-SIMULATION.md)
+- [P4E reproducible screening code](tools/p4e_grant_scale_kinetics_force.py)
+
+**Technical package status:** ready for adaptation to a specific solicitation.  
+**Actual submission still requires:** eligible submitting institution / PI, facilities confirmation, final sponsor-specific budget, required institutional forms and the target solicitation.
+
+## Known experimental lineage
+
+CRTFE does not claim that pulsed cold-air MHD or ns/RF hybrid plasma is new by itself.
+
+Relevant prior work separately establishes:
+
+- repetitive pulsed nonequilibrium plasma in air / nitrogen;
+- measurable Lorentz-force effects on low-temperature high-speed flow;
+- ns-pulse / RF hybrid vibrational excitation;
+- negative-ion / metastable plasma memory;
+- inductive and capacitive plasma-current coupling in adjacent MHD / plasma systems.
+
+P4E is framed around the **combination and efficiency question**, with explicit control experiments and falsification gates.
+
+No patent-novelty claim is made by this repository without a formal search.
+
+## Vehicle target — future integration only
+
+The long-range vehicle reference remains:
+
+- crew: 2 side-by-side;
+- design gross mass: ~650 kg;
+- four distributed active modules;
+- total active lift area: ~4.8 m²;
+- VTOL / wingborne transition;
+- no-moving-parts atmospheric electromagnetic propulsion as the research objective.
+
+A **300–500 mph wingborne envelope** is now retained only as an aspirational design-study range for future aerodynamic and control simulation. It is not a demonstrated or funded P4E deliverable.
+
+See:
+
+- [Target Vehicle V5](docs/TARGET-VEHICLE-V5.md)
+- [T.A.R. / A.R.C. autonomy integration](docs/TAR-ARC-AUTONOMY-INTEGRATION.md)
+
+## T.A.R. / A.R.C. autonomy path
+
+Future high-speed vehicle integration is autonomy-first:
 
 ```text
-P_plasma+Joule
-  = F²/(B² V σ_eff)
-  + V σ_eff R_p
+sensors / RF environment
+      ↓
+T.A.R. perception + fusion
+      ↓
+A.R.C. mission-level reasoning
+      ↓
+independent deterministic flight-safety controller
+      ↓
+verified vehicle control allocation
 ```
 
-and the reduced-order optimized minimum is:
+The conceptual target is approximately **97% automated routine flight workload**, not unrestricted AI control authority. T.A.R. and A.R.C. are not allowed to bypass the independent safety/control layer.
 
-```text
-P_extra,min = (2F/B) sqrt(R_p)
-```
-
-The project therefore asks a more useful question than “can air reach 60–150 S/m?”:
-
-> **How much force-producing conductivity impulse can the source create per joule, and can that impulse be synchronized with a strong static field and transferred to neutral air?**
-
-Reproducible screening model: [`tools/goal_aligned_synchronous_lorentz.py`](tools/goal_aligned_synchronous_lorentz.py).
-
-## Pulsed conductivity remains a core mechanism
-
-High instantaneous conductivity can still be valuable even if it is short-lived, provided pulse energy and repetition rate close.
-
-For the provisional 50 kW Joule-loss target:
-
-- at **5 T**, `σ_eff ≈ 13.6 S/m`;
-- at **8 T**, `σ_eff ≈ 5.3 S/m`.
-
-If an on-state reaches hundreds of S/m for several microseconds, the required cadence moves into the low-kHz range. If useful conductivity survives only tens of nanoseconds, required cadence moves into the hundreds-of-kHz or MHz range.
-
-That makes **conductivity impulse + pulse energy + commutation** the key subsystem problem.
-
-## Branch control — do not drift from the vehicle goal
-
-### Primary
-
-**Full-stream segmented synchronous Lorentz duct** — static high field, synchronized conductivity/current, full atmospheric mass flow.
-
-### Retained comparison
-
-**V5 traveling-field induction MHD** — retained as a reference branch, but its field decomposition and full system efficiency require correction.
-
-### Supporting subsystem research
-
-Carrier-memory chemistry, negative-ion/metastable pre-ionization, capacitive/electrodeless current coupling, resonant reactive-energy recovery, Hall/tensor conductivity and high-field magnet topology are retained only if they improve the primary branch.
-
-### Screening branches, not project replacements
-
-Small high-speed plasma-driver/ejector concepts, bulk O2 chemical conditioning, and neutral paramagnetic-air acceleration are documented as boundary studies. They do **not** replace CRTFE's atmospheric electromagnetic propulsion objective.
+The first software bridge is implemented in the T.A.R. repository and supports IMU, air data, radar, EO/IR, lidar, GNSS, LEO signals-of-opportunity, ADS-B, terrain, weather and propulsion-health observations as normalized perception sources. The bridge produces **non-executable** A.R.C. advisories and fails closed on stale/low-confidence fast-loop sensing.
 
 ## V0.3 / OSU status
 
-The previously prepared V0.3 P3 broad plasma-optimization campaign is **on hold** while P4 theoretical reengineering identifies the smallest experiment that tests a genuinely CRTFE-specific unknown.
+The older V0.3 / P3 broad plasma-optimization campaign remains **on hold** and is retained as research history / diagnostic reference.
 
-Existing P3 documents are retained as research history and may supply diagnostics later, but they no longer define the immediate program direction.
+P4E supersedes P3 as the immediate grant-scale proof-of-physics target. This repository update does **not** authorize contacting OSU or transmitting a new experimental pitch.
 
-## V4 / V5 interpretation
+## Branch control
 
-### V4 — discrete filament failure model
+### Primary
 
-V4 exposed the `P/F = E/B` burden of high-sustaining-field filament propulsion. Filamentary/streamer behavior cannot be averaged into an optimistic bulk conductivity and inserted into V5.
+**P4 full-stream Lorentz architecture**, with P4A–P4D as supporting refinements.
 
-### V5 — traveling-field comparison model
+### Immediate experimental gate
 
-V5 showed a conditional reduced-order low-slip operating region. P4 now treats it as a **comparison model**, not the only route, because its simplified `B²` relation did not distinguish static bias field from the actual traveling-field component strongly enough.
+**P4E grant-scale vibrationally conditioned pulsed-air MHD experiment.**
 
-See [V4–V5 Revised Interpretation](docs/V4-V5-REVISED.md).
+### Retained comparison
 
-## Target vehicle — V5 packaging reference
+**V5 traveling-field induction MHD** remains a comparison model only.
 
-The long-range vehicle target remains documented in [`docs/TARGET-VEHICLE-V5.md`](docs/TARGET-VEHICLE-V5.md):
+### Boundary studies
 
-- crew: 2 side-by-side
-- design gross mass: 650 kg
-- length: 6.20 m
-- span: 5.40 m
-- wing reference area: ~11 m²
-- four active lift modules
-- total active lift area: ~4.80 m²
-- no-moving-parts atmospheric electromagnetic propulsion target
-
-The vehicle remains a research target, not demonstrated flight hardware.
-
-## Active theoretical artifacts
-
-- [P4 Project Goal Lock](docs/PROJECT-GOAL-LOCK-P4.md)
-- [Pulsed Lorentz Simulation P1](docs/PULSED-LORENTZ-SIMULATION-P1.md)
-- [Carrier-Memory Simulation P2](docs/CARRIER-MEMORY-SIMULATION-P2.md)
-- [Oxygen-Memory Energy Sanity Check](docs/OXYGEN-MEMORY-ENERGY-SANITY-CHECK.md)
-- [Neutral Paramagnetic Air Branch Screen](docs/NEUTRAL-PARAMAGNETIC-AIR-BRANCH-SCREEN.md)
-- [V-2 Hybrid MHD Baseline](docs/V2-HYBRID-MHD-BASELINE.md)
-- [V-2 G2 Electromagnetic Validation](docs/V2-G2-ELECTROMAGNETIC-VALIDATION.md)
+Small plasma jets/ejectors, bulk oxygen conditioning and neutral-paramagnetic-air acceleration are retained as boundary studies and do **not** replace the vehicle goal.
 
 ## Current program conclusion
 
-> **CRTFE remains an aircraft-scale atmospheric electromagnetic propulsion project. P4 is narrowing the design to the full-stream electromagnetic mechanism that maximizes momentum transferred per joule and per kilogram of installed field system. Side branches are retained only when they improve that mechanism.**
-
-The next theoretical deliverable is a coupled segmented-cell model that propagates `σ(t)`, current, `J×B` impulse, neutral momentum, thermal deposition, surface/sheath charge and circuit-energy recovery through the full target mass flow before another laboratory pitch is made.
+> **CRTFE remains an aircraft-scale atmospheric electromagnetic propulsion research program, but the immediate credible funding request is a much smaller controlled plasma/MHD experiment. P4E is designed to decide whether the missing conductivity-efficiency physics is real before further aircraft-scale development.**
