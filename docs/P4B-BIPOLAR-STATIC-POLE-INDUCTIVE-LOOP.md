@@ -208,23 +208,49 @@ P4B remains inside the primary CRTFE branch because it preserves:
 
 It should replace neither the project goal nor the evidence gates.
 
-## Next simulation
+## P4C primary-driver follow-up
 
-The next useful model is a coupled primary-secondary circuit plus plasma-decay model:
+P4C now adds the capacitor, primary inductance/resistance, mutual coupling and plasma-loop `L/R` dynamics instead of assuming an ideal induced-voltage source.
+
+The representative `20 uF / L1=1 uH / L2=0.39 uH / k=0.8` circuit reproduced the target force impulse with approximately:
 
 ```text
-primary capacitor/inverter
-L_primary, R_primary
-mutual inductance M
-plasma-loop Lp, Rp(t)
-sigma(t)
-+B / -B static pole map
-energy recovery/reset
+~1.14 kV initial capacitor voltage
+~7.7 kA primary peak
+~9.2 kA plasma-loop peak
+~13 J initial pulse energy/module
+~40 kW four-module electromagnetic loss at 98% recovery
+```
+
+for a constant 10 mOhm plasma loop during a 5 us pulse.
+
+When plasma resistance is allowed to increase with a 5 us conductivity-decay time, a ~7–7.5 us forward pulse followed by clamping before current reversal is electrically better than forcing a 5 us pulse. The representative 7.5 us screen requires roughly:
+
+```text
+~0.95 kV initial capacitor voltage
+~6.0 kA primary peak
+~7.0 kA plasma peak
+~52 kW four-module electromagnetic loss at 98% recovery
+```
+
+The free-running RLC pulse must not be allowed to reverse plasma current under fixed static poles, because that would create reverse thrust. P4C therefore requires pulse interruption/clamping plus energy recovery/reset during low conductivity.
+
+See `docs/P4C-COUPLED-PRIMARY-PLASMA-DRIVER.md` and `tools/p4c_coupled_primary_plasma_driver.py`.
+
+## Next simulation
+
+The next useful model couples the P4C circuit directly to the plasma source and flow:
+
+```text
+plasma-source energy
+sigma(t) / Rp(t)
+primary-secondary circuit
 JxB impulse
+neutral momentum transfer
 gas heating
 ```
 
-The gating question is whether the ~1 kV / ~50 mT drive-flux result survives realistic mutual coupling `k=M/sqrt(Lp Ls)`, primary winding loss and HTS fringe-field geometry.
+The gating question is no longer only whether the transformer works. It is whether the required conductivity impulse can be purchased cheaply enough that **total propulsion electrical power**, including plasma generation, remains competitive with the aerodynamic power floor.
 
 ## Reproducibility
 
@@ -232,5 +258,7 @@ See:
 
 - `tools/bipolar_static_pole_inductive_loop.py`
 - `tools/asymmetric_inductive_current_drive.py`
+- `tools/p4c_coupled_primary_plasma_driver.py`
+- `docs/P4C-COUPLED-PRIMARY-PLASMA-DRIVER.md`
 - `docs/P4A-ASYMMETRIC-INDUCTIVE-CURRENT-DRIVE.md`
 - `docs/PROJECT-GOAL-LOCK-P4.md`
