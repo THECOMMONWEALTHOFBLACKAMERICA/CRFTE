@@ -16,7 +16,6 @@ The solver uses RK4 so no external Python packages are required.
 
 from math import sqrt, exp
 
-# Vehicle / module anchor
 MASS_KG = 650.0
 G = 9.81
 MODULES = 4
@@ -46,8 +45,6 @@ def simulate(V0, pulse_s=5e-6, C=20e-6, L1=1e-6, L2=0.39e-6,
     M = k * sqrt(L1 * L2)
     det = L1 * L2 - M * M
     dt = pulse_s / steps
-
-    # state = i1, i2, capacitor voltage, primary R loss, plasma R loss
     y = [0.0, 0.0, V0, 0.0, 0.0]
     t = 0.0
     impulse_signed = 0.0
@@ -134,3 +131,8 @@ if __name__ == "__main__":
             f"P_EM(98%)={average_em_power_kW(r):.1f} kW, "
             f"reverse={r['sign_reversal']}"
         )
+
+    print("\nRecovery sensitivity at the 7.5 us decaying-conductivity point")
+    r = required_voltage(pulse_s=7.5e-6, sigma_decay_s=5e-6)
+    for recovery in (0.30, 0.50, 0.80, 0.90, 0.95, 0.98):
+        print(f"recovery={recovery:.0%}: P_EM={average_em_power_kW(r, recovery):.1f} kW")
