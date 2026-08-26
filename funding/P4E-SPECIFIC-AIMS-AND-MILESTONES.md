@@ -1,10 +1,12 @@
-# CRTFE P4E — Specific Aims and Milestones
+# CRFTE P4E — Specific Aims and Milestones
+
+> **Program naming note:** CRFTE is the legacy research-program identifier. The current P4/P4E mechanism is an atmospheric electromagnetic propulsion / MHD architecture using controlled conductivity, transverse current and a predominantly stationary magnetic field; it does not require counter-rotating magnetic fields.
 
 ## Objective
 
 Determine whether vibrationally conditioned, high-repetition-rate atmospheric plasma can increase the useful conductivity-time integral enough to produce controlled, polarity-reversible MHD momentum transfer at laboratory scale.
 
-The work deliberately stops short of aircraft hardware. Its purpose is to establish or falsify the plasma/MHD mechanism that the larger CRTFE architecture requires.
+The work deliberately stops short of aircraft hardware. Its purpose is to establish or falsify the plasma/MHD mechanism that the larger **P4 Atmospheric Electromagnetic Propulsion architecture** requires.
 
 ## Aim 1 — Quantify the RF vibrational-conditioning gain
 
@@ -102,14 +104,16 @@ RF-conditioned operation improves Lorentz impulse per conditioning joule by at l
 
 Identify whether attachment, recombination, spatial nonuniformity, or source energy is the dominant remaining limiter.
 
-## Optional Aim 4 — Translate to electrodeless CRTFE current drive
+## Optional Aim 4 — Translate to P4 electrodeless current drive
 
 Only after Aims 1-3 pass, replace the laboratory sustainer with the P4B/P4C induced-current topology:
 
 - closed low-inductance plasma loop;
-- adjacent opposite-polarity static magnetic poles;
+- adjacent opposite-polarity **stationary** magnetic poles;
 - externally induced current;
 - clamp/reset synchronized to plasma decay.
+
+This is a current-drive refinement within P4. It is not a return to a requirement for counter-rotating propulsion magnetic fields.
 
 Success is not required for the initial grant to be scientifically productive.
 
@@ -172,4 +176,4 @@ P4E is successful if the project can answer, quantitatively and with controls:
 
 > Does vibrationally conditioned high-PRF plasma create a substantially larger, energy-efficient conductivity-time integral that translates into polarity-reversible `J x B` momentum transfer in moving atmospheric air?
 
-A negative answer is a valid project outcome and should stop or redirect vehicle-scale CRTFE work before expensive hardware development.
+A negative answer is a valid project outcome and should stop or redirect vehicle-scale P4 work before expensive hardware development.
