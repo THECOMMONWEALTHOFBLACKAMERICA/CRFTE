@@ -1,0 +1,41 @@
+# Python / local build
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.log
+.DS_Store
+
+# Environment / credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Private R&D / IP material — never commit to this public repository
+private/
+proprietary/
+trade-secret/
+trade_secrets/
+patent/
+patents/
+invention-disclosures/
+claim-charts/
+attorney/
+nda/
+confidential/
+lab-notes-private/
+experimental-private/
+optimization-private/
+partner-private/
+
+# Local data / generated outputs
+data/private/
+artifacts/private/
+results/private/
