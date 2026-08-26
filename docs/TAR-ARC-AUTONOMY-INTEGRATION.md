@@ -1,12 +1,20 @@
-# CRTFE — T.A.R. / A.R.C. Autonomy Integration
+# CRFTE — T.A.R. / A.R.C. Autonomy Integration
 
 **Date:** 2026-08-25  
 **Status:** long-range vehicle architecture requirement; not flight-ready software  
 **Primary propulsion status:** P4/P4E research remains evidence-gated
 
+## Naming and propulsion boundary
+
+CRFTE is the legacy program identifier originating from the historical **Counter-Rotating Field Thrust Engine** concept.
+
+The current vehicle architecture does **not** require counter-rotating magnetic fields. The propulsion layer referenced here is the **P4 Atmospheric Electromagnetic Propulsion architecture**: controlled atmospheric-air conductivity, transverse current, and a predominantly stationary magnetic field producing direct `J × B` momentum transfer.
+
+P4E is the grant-scale proof-of-physics experiment for that mechanism; it is not the completed vehicle engine.
+
 ## Purpose
 
-CRTFE's long-range vehicle target is now autonomy-first. At high forward speed, millisecond-to-second stabilization and conflict response cannot depend on human reaction alone.
+CRFTE's long-range vehicle target is autonomy-first. At high forward speed, millisecond-to-second stabilization and conflict response cannot depend on human reaction alone.
 
 The vehicle therefore uses a layered architecture:
 
@@ -21,7 +29,7 @@ independent deterministic flight-safety controller
         ↓
 verified control allocation
         ↓
-CRTFE modules + conventional aerodynamic effectors where present
+P4 propulsion modules + conventional aerodynamic effectors where present
 ```
 
 T.A.R. and A.R.C. are not allowed to bypass the independent controller.
@@ -54,8 +62,8 @@ The autonomy stack handles fast continuous tasks such as:
 
 - IMU / gyros / accelerometers
 - air data
-- propulsion-module state
-- electrical / thermal / magnetic health
+- P4 propulsion-module state
+- electrical / thermal / magnetic / plasma health
 
 ### Local perception layer
 
@@ -80,9 +88,7 @@ LEO signals-of-opportunity are not treated as a primary last-second collision se
 
 ## High-speed target
 
-The long-range conceptual vehicle may explore **300–500 mph** wingborne operation. These speeds are aspirational design-study points, not validated CRTFE performance.
-
-High speed changes the sensing/control problem because distance traveled per second becomes large:
+The long-range conceptual vehicle may explore **300–500 mph** wingborne operation. These speeds are aspirational design-study points, not validated CRFTE performance.
 
 ```text
 300 mph ≈ 134 m/s
@@ -104,15 +110,16 @@ The first bridge implementation is maintained in:
 
 `THECOMMONWEALTHOFBLACKAMERICA/The-Akashic-record`
 
-Files:
+Files include:
 
 - `backend/app/tar_arc_bridge.py`
 - `backend/app/tar_arc_bridge_api.py`
 - `docs/TAR-ARC-FLIGHT-BRIDGE.md`
 - `tests/test_tar_arc_bridge.py`
+- `tests/test_tar_arc_bridge_api.py`
 
 ## Grant relevance
 
-The immediate P4E grant experiment does not require autonomous flight. The T.A.R./A.R.C. architecture is included as a **future vehicle integration pathway** demonstrating how a successful plasma/MHD actuator could later be managed safely at high speed.
+The immediate P4E grant experiment does not require autonomous flight. The T.A.R./A.R.C. architecture is included as a **future vehicle integration pathway** showing how a later validated P4 propulsion system could be managed safely at high speed.
 
-The grant should remain focused on the falsifiable P4E plasma/MHD experiment rather than claim the full aircraft or autonomy stack is complete.
+The grant remains focused on the falsifiable P4E plasma/MHD experiment rather than claiming the full aircraft or autonomy stack is complete.
