@@ -25,11 +25,32 @@ The following dates are the earliest confirmed public GitHub dates located durin
 | CRFTE repository itself | 2026-08-18 00:30:59 UTC | repository creation |
 | P4 theoretical reengineering / architecture | 2026-08-25 12:35:09 CDT | `c77b73eae65d90480d5b290194978887d316e234` |
 | P4B bipolar static-pole inductive-loop simulator | 2026-08-25 13:10:10 CDT | `2ca0c368a36369ba655e12037f4ce92760adcf25` |
+| P4C coupled primary / plasma driver | 2026-08-25 13:16:12 CDT | `e190b87f5cd7e94138ffa4a632fdecbcec5430a3` |
+| P4D high-PRF vibrational conductivity branch | 2026-08-25 13:57:26 CDT | `82116c003e1751c7a9c80c04a75ee5af95fb1e1e` |
 | P4E plasma kinetics / Lorentz-force screening model | 2026-08-25 14:10:13 CDT | `c9ae07734976efc02716f47fd168e61391e805aa` |
 | P4E falsification gates | 2026-08-25 14:10:53 CDT | `b760e86275d008a8cfac90bc24826c45ffdc62a9` |
 | Current CRFTE/P4 naming clarification | 2026-08-25 20:50:37 CDT | `d9805c6684fb35c1e3f7f943da3df62b757c50f1` |
 
 **Important:** these dates are evidence anchors, not a legal conclusion about which date starts any statutory grace period. Each potential patent claim may have a different first enabling disclosure.
+
+## 2A. Non-GitHub disclosure review
+
+A review of project-related sent Gmail located no CRFTE/CRTFE project messages before the repository's August 18 UTC creation date.
+
+The earliest confirmed external message located is:
+
+- **2026-08-17 17:59 PDT / 2026-08-18 00:59 UTC** — outreach to `business@markrober.com`, subject *Would Mark Rober Test an Experimental Atmospheric Plasma Propulsion Prototype?* The message discussed the unresolved bulk-conductivity question, referred to experimental protocol / decision gates, and directed the recipient to the public CRFTE repository. This was approximately 29 minutes after the repository creation timestamp.
+
+Additional non-confidential external outreach reviewed includes:
+
+- **2026-08-20** — OCAST / Oklahoma Inventors Assistance outreach with the `Emergent_Ventures_CRFTE_V03_Concept.pdf` concept note. That document publicly/externally described the older V0.3 traveling-field concept, a roughly `60–150 S/m` conductivity target, 10/20/30 m/s measurements, and precommitted conductivity decision gates.
+- **2026-08-23** — external laboratory inquiries, including Georgia Tech and Sandia, describing atmospheric-plasma conductivity / momentum-coupling measurements.
+- **2026-08-24** — Oklahoma Farm Bureau presentation outreach and other collaboration communications.
+- **2026-08-25** — AFOSR, ONR, DARPA and OCAST technical-fit outreach with concept attachments or summaries.
+
+No confidentiality/NDA obligation was apparent in the reviewed external messages. Counsel should therefore treat these as potential non-confidential disclosures when assessing the older CRTFE/V0.3 claim family.
+
+A public web search during this audit did not return indexed results for the exact CRFTE repository/name queries. That is useful as a practical exposure signal but **does not change public-accessibility analysis**.
 
 ## 3. Material already exposed publicly
 
@@ -100,12 +121,14 @@ WIPO similarly advises that public disclosure through websites or other electron
 - [x] Freeze new enabling CRFTE/P4/P4E disclosures in the public repository.
 - [x] Record confirmed public-disclosure dates.
 - [x] Add repository ignore guards for private/proprietary/IP material.
+- [x] Review project-related sent Gmail for earlier non-confidential disclosures.
+- [x] Run an initial public web-index search for CRFTE/CRTFE exact-name exposure.
+- [x] Build an invention-by-invention disclosure matrix (`docs/INVENTION-DISCLOSURE-MATRIX-2026-08-25.md`).
 - [ ] Create a private R&D companion repository before the next enabling engineering change.
 - [ ] Copy **only new, never-public** proprietary development into that private workspace.
-- [ ] Build an invention-by-invention disclosure matrix with possible inventors and earliest disclosure dates.
 - [ ] Schedule patent counsel / patent-agent review.
 - [ ] Decide whether to pursue U.S. provisional filings, defensive publication, trade-secret treatment, or a mixed strategy for each branch.
-- [ ] Review any disclosures outside GitHub: emails, grant applications, websites, PDFs, videos, social posts, and partner communications.
+- [ ] Review any remaining non-Gmail disclosures: websites, PDFs hosted elsewhere, videos, social posts, grant portals, and verbal presentations.
 
 ## 9. Decision rule going forward
 
