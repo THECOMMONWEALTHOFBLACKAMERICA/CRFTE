@@ -1,6 +1,8 @@
-# CRTFE P4E — Grant Submission Package
+# CRFTE P4E — Grant Submission Package
 
 **Working project:** Vibrationally Conditioned Repetitively Pulsed Atmospheric MHD for Low-Temperature Momentum Transfer
+
+> **Naming:** CRFTE is the legacy research-program identifier. P4 is the current Atmospheric Electromagnetic Propulsion architecture, and P4E is its grant-scale proof-of-physics experiment. The current mechanism does not require counter-rotating magnetic fields.
 
 ## Submission-ready technical core
 
@@ -13,7 +15,7 @@
 
 ## Research claim
 
-The proposed project does **not** ask a sponsor to accept the CRTFE aircraft concept as demonstrated technology.
+The proposed project does **not** ask a sponsor to accept the CRFTE aircraft concept as demonstrated technology.
 
 It asks one falsifiable question:
 
@@ -54,10 +56,12 @@ This package intentionally leaves sponsor-dependent fields open. Before submissi
 - biosketches / current-and-pending support where required;
 - letters of collaboration or facilities access;
 - data-management / sharing plan in the sponsor's required format;
-- human/animal/environmental compliance statements if requested (none are inherent to the present physical experiment);
+- institutional safety review for the proposed experiment;
 - intellectual-property and export-control review if required by the host institution;
 - sponsor-specific page limits and formatting.
 
 ## Scope discipline
 
-The long-range 650 kg VTOL vehicle, 300–500 mph design-study envelope, HTS flight magnet, P4B/P4C inductive-current implementation and T.A.R./A.R.C. autonomy stack are **future integration context only**. They should not be presented as demonstrated deliverables of this grant.
+The long-range 650 kg VTOL vehicle, 300–500 mph design-study envelope, HTS flight magnet, P4B/P4C induced-current implementation and T.A.R./A.R.C. autonomy stack are **future integration context only**. They should not be presented as demonstrated deliverables of this grant.
+
+The historical Counter-Rotating Field Thrust Engine concept is research lineage only and should not be described as the mechanism under test in P4E.
