@@ -1,6 +1,31 @@
-# CRFTE / CRTFE Atmospheric Electromagnetic Propulsion Research
+# CRFTE Atmospheric Electromagnetic Propulsion Research Program
 
-> **Current status:** theoretical / reduced-order research with a **grant-scale P4E proof-of-physics experiment now defined**. No working lift hardware or flight vehicle has been demonstrated.
+> **Current status:** theoretical / reduced-order research with a grant-scale P4E proof-of-physics experiment defined. No working lift hardware or flight vehicle has been demonstrated.
+
+## Name and architecture clarification
+
+**CRFTE is retained as the program identifier and repository name.** It originated as **Counter-Rotating Field Thrust Engine**, the name of the earliest propulsion concept explored by this project.
+
+The present primary architecture is **not a counter-rotating-magnetic-field engine**. Successive modeling and falsification work moved the program toward a full-stream Lorentz/MHD architecture based on:
+
+- atmospheric air as the external working mass;
+- controlled transient conductivity;
+- a strong predominantly stationary magnetic field;
+- separately controlled or induced transverse current;
+- direct `J × B` momentum transfer;
+- segmented / commutated interaction regions.
+
+Accordingly:
+
+```text
+CRFTE = legacy program identifier / research lineage
+P4 = current Atmospheric Electromagnetic Propulsion architecture
+P4E = grant-scale proof-of-physics experiment for the P4 plasma/MHD mechanism
+```
+
+The phrase **Counter-Rotating Field Thrust Engine** is used only when discussing the historical origin of the program. It is not a claim that the current P4/P4E mechanism uses counter-rotating magnetic fields.
+
+See: [CRFTE name and architecture lineage](docs/CRFTE-NAME-AND-ARCHITECTURE-LINEAGE.md).
 
 ## Project links
 
@@ -8,13 +33,13 @@
 - [Commonwealth of Black America public record](https://github.com/THECOMMONWEALTHOFBLACKAMERICA/Commonwealth-of-Black-America)
 - [T.A.R. — The Akashic Records](https://github.com/THECOMMONWEALTHOFBLACKAMERICA/The-Akashic-record)
 
-This repository remains the canonical public CRTFE project location.
+This repository is the canonical public CRFTE program location.
 
 ## Project goal — locked
 
-CRTFE remains a **large-area, no-moving-parts atmospheric electromagnetic propulsion research program** with a two-person VTOL / wingborne aircraft as the long-range application.
+CRFTE remains a **large-area, no-moving-parts atmospheric electromagnetic propulsion research program** with a two-person VTOL / wingborne aircraft as the long-range application.
 
-The core objective is unchanged:
+The core objective is:
 
 > **Transfer electromagnetic momentum directly into a large atmospheric-air mass flow without conventional rotors, propellers, turbines or mechanical compressors.**
 
@@ -22,16 +47,16 @@ See: [P4 Project Goal Lock](docs/PROJECT-GOAL-LOCK-P4.md).
 
 ## Current program structure
 
-### P4 — vehicle-scale primary architecture
+### P4 — current Atmospheric Electromagnetic Propulsion architecture
 
-The goal-aligned architecture remains a full-stream Lorentz interaction using:
+The goal-aligned architecture is a full-stream Lorentz interaction using:
 
 1. atmospheric air as the external working mass;
 2. a strong stationary magnetic field;
 3. controlled transient conductivity;
 4. synchronized transverse current;
 5. direct `J × B` body-force transfer;
-6. segmentation / commutation rather than a required multi-tesla traveling propulsion field.
+6. segmentation / commutation rather than a required multi-tesla counter-rotating or traveling propulsion field.
 
 Reduced-order anchor:
 
@@ -49,14 +74,14 @@ ideal hover induced velocity ≈ 23.3 m/s
 ideal fluid-power floor ≈ 148.5 kW
 ```
 
-These remain screening values, not demonstrated vehicle performance.
+These are screening values, not demonstrated vehicle performance.
 
 ### P4A / P4B / P4C — current-drive refinement
 
-The present current-drive research separates the large static propulsion field from a smaller pulsed field used only to establish current.
+The present current-drive research separates the large static propulsion field from a smaller pulsed field used only to establish or shape current.
 
 - **P4A:** asymmetric inductive current drive;
-- **P4B:** bipolar `+B/-B` static pole geometry so opposite legs of a closed plasma-current loop contribute same-direction Lorentz force;
+- **P4B:** bipolar `+B/-B` static-pole geometry so opposite legs of a closed plasma-current loop contribute same-direction Lorentz force;
 - **P4C:** coupled primary capacitor / transformer / plasma-loop circuit with active clamping before reverse impulse.
 
 See:
@@ -68,7 +93,7 @@ See:
 
 ### P4D — high-PRF vibrational conductivity branch
 
-Literature and reduced-order analysis shifted the plasma question away from a low-duty-cycle 3 kHz assumption and toward:
+Literature and reduced-order analysis shifted the plasma question toward:
 
 - tens to hundreds of kHz repetitive nanosecond excitation;
 - plasma-memory effects;
@@ -78,9 +103,9 @@ Literature and reduced-order analysis shifted the plasma question away from a lo
 
 See [P4D High-PRF Vibrational Conductivity Research](docs/P4D-HIGH-PRF-VIBRATIONAL-CONDUCTIVITY-RESEARCH.md).
 
-## P4E — current grant-scale experiment
+## P4E — current grant-scale proof-of-physics experiment
 
-The immediate funding target is **not a vehicle build**.
+The immediate funding target is **not a vehicle build and not a complete engine**.
 
 P4E asks a falsifiable laboratory question:
 
@@ -108,8 +133,6 @@ Primary go/no-go gates:
 - measured force consistent with independently reconstructed `integral(J × B)dV` within experimental uncertainty;
 - `>=5x` improvement in Lorentz impulse per plasma-conditioning joule versus the nanosecond-only baseline.
 
-The reduced-order model predicts a conditioned test region in the **mN** range rather than requiring a vehicle-scale force demonstration. The experiment is designed to identify whether attachment, recombination, nonuniformity, thermal deposition or another loss mechanism prevents further scaling.
-
 ### Grant package
 
 - [P4E submission package index](funding/P4E-SUBMISSION-PACKAGE.md)
@@ -125,7 +148,7 @@ The reduced-order model predicts a conditioned test region in the **mN** range r
 
 ## Known experimental lineage
 
-CRTFE does not claim that pulsed cold-air MHD or ns/RF hybrid plasma is new by itself.
+CRFTE does not claim that pulsed cold-air MHD, ns/RF hybrid plasma, static-field Lorentz acceleration, or traveling-field MHD is new by itself.
 
 Relevant prior work separately establishes:
 
@@ -145,12 +168,12 @@ The long-range vehicle reference remains:
 
 - crew: 2 side-by-side;
 - design gross mass: ~650 kg;
-- four distributed active modules;
+- four distributed P4 atmospheric-electromagnetic propulsion modules;
 - total active lift area: ~4.8 m²;
 - VTOL / wingborne transition;
 - no-moving-parts atmospheric electromagnetic propulsion as the research objective.
 
-A **300–500 mph wingborne envelope** is now retained only as an aspirational design-study range for future aerodynamic and control simulation. It is not a demonstrated or funded P4E deliverable.
+A **300–500 mph wingborne envelope** is retained only as an aspirational design-study range for future aerodynamic and control simulation. It is not a demonstrated or funded P4E deliverable.
 
 See:
 
@@ -175,7 +198,13 @@ verified vehicle control allocation
 
 The conceptual target is approximately **97% automated routine flight workload**, not unrestricted AI control authority. T.A.R. and A.R.C. are not allowed to bypass the independent safety/control layer.
 
-The first software bridge is implemented in the T.A.R. repository and supports IMU, air data, radar, EO/IR, lidar, GNSS, LEO signals-of-opportunity, ADS-B, terrain, weather and propulsion-health observations as normalized perception sources. The bridge produces **non-executable** A.R.C. advisories and fails closed on stale/low-confidence fast-loop sensing.
+## Historical counter-rotating / traveling-field work
+
+Early CRFTE studies investigated counter-rotating and traveling magnetic-field mechanisms. Those records remain in the repository because they are part of the project's falsification history.
+
+They are now classified as **historical or comparison branches unless a future model produces a quantitative advantage over the current P4 static-field/current-drive architecture**.
+
+Historical filenames containing `CRTFE`, `counter-rotating`, or traveling-field language are not automatically current design requirements.
 
 ## V0.3 / OSU status
 
@@ -183,24 +212,6 @@ The older V0.3 / P3 broad plasma-optimization campaign remains **on hold** and i
 
 P4E supersedes P3 as the immediate grant-scale proof-of-physics target. This repository update does **not** authorize contacting OSU or transmitting a new experimental pitch.
 
-## Branch control
-
-### Primary
-
-**P4 full-stream Lorentz architecture**, with P4A–P4D as supporting refinements.
-
-### Immediate experimental gate
-
-**P4E grant-scale vibrationally conditioned pulsed-air MHD experiment.**
-
-### Retained comparison
-
-**V5 traveling-field induction MHD** remains a comparison model only.
-
-### Boundary studies
-
-Small plasma jets/ejectors, bulk oxygen conditioning and neutral-paramagnetic-air acceleration are retained as boundary studies and do **not** replace the vehicle goal.
-
 ## Current program conclusion
 
-> **CRTFE remains an aircraft-scale atmospheric electromagnetic propulsion research program, but the immediate credible funding request is a much smaller controlled plasma/MHD experiment. P4E is designed to decide whether the missing conductivity-efficiency physics is real before further aircraft-scale development.**
+> **CRFTE is the research program that began with a Counter-Rotating Field Thrust Engine concept. Its present primary mechanism is the P4 Atmospheric Electromagnetic Propulsion architecture: controlled conductivity, transverse current, and predominantly static magnetic field producing direct `J × B` momentum transfer. P4E is the smaller experiment designed to decide whether the required plasma/MHD physics is efficient enough to justify scaling toward a vehicle.**
