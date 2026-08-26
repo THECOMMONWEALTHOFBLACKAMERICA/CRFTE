@@ -1,4 +1,6 @@
-# CRTFE P4E — Grant Technical Abstract
+# CRFTE P4E — Grant Technical Abstract
+
+> **Program naming note:** CRFTE is the legacy research-program identifier originating from the historical Counter-Rotating Field Thrust Engine concept. The current P4/P4E mechanism does **not** require counter-rotating magnetic fields. P4E is the grant-scale proof-of-physics experiment for the P4 Atmospheric Electromagnetic Propulsion architecture.
 
 ## Working title
 
@@ -14,11 +16,13 @@ Reduced-order simulations predict that a vibrationally conditioned regime with e
 
 The primary success criteria are: (1) at least a `10x` increase in conductivity-time integral with RF vibrational conditioning at matched nanosecond-pulse energy and less than 150 K bulk temperature rise; (2) repeatable spatially distributed conductivity of at least `0.01 S/m` without arc-dominated conduction; (3) a `>=3 mN` force signal that reverses according to `J x B` and agrees with independently measured electromagnetic body-force estimates within experimental uncertainty; and (4) at least a `5x` improvement in Lorentz impulse per total plasma-conditioning joule relative to nanosecond-pulse-only operation.
 
-If these gates are met, a follow-on stage will replace the laboratory sustainer with CRTFE's electrodeless bipolar static-pole induced-current topology. If the gates fail, the experiment will still resolve whether attachment, recombination, nonuniformity, or energy deposition is the dominant barrier to low-temperature atmospheric MHD momentum transfer.
+If these gates are met, a follow-on stage will test translation toward the CRFTE program's P4B/P4C electrodeless induced-current topology: a predominantly stationary propulsion magnetic field combined with separately induced plasma current. If the gates fail, the experiment will still resolve whether attachment, recombination, nonuniformity, or energy deposition is the dominant barrier to low-temperature atmospheric MHD momentum transfer.
 
 ## Why this proposal is appropriately scoped
 
-This submission does **not** request funding for a vehicle and does not claim demonstrated lift or propulsion. It asks for a fundamental plasma/MHD experiment with quantitative falsification gates whose result determines whether the larger CRTFE architecture merits continued development.
+This submission does **not** request funding for a vehicle and does not claim demonstrated lift or propulsion. It asks for a fundamental plasma/MHD experiment with quantitative falsification gates whose result determines whether the larger **P4 Atmospheric Electromagnetic Propulsion architecture** merits continued development.
+
+The proposal does not depend on counter-rotating magnetic fields and does not claim that the historical expansion of the CRFTE acronym describes the current mechanism.
 
 ## Key references
 
