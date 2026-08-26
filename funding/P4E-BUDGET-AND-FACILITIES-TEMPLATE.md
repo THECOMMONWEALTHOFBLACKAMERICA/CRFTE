@@ -1,4 +1,6 @@
-# CRTFE P4E — Budget and Facilities Template
+# CRFTE P4E — Budget and Facilities Template
+
+> **Naming:** CRFTE is the legacy program identifier. P4 is the current Atmospheric Electromagnetic Propulsion architecture, and P4E is its grant-scale proof-of-physics experiment. The present mechanism does not require counter-rotating magnetic fields.
 
 **Purpose:** sponsor-neutral planning template. Final amounts must be replaced with institutional quotes, salary/fringe rates, equipment ownership status and the target sponsor's indirect-cost rules.
 
@@ -53,7 +55,7 @@ A host laboratory is a strong fit if it can provide most of the following:
 - plasma/MHD experiment oversight;
 - sponsor reporting.
 
-### CRTFE project lead
+### CRFTE project lead
 
 - system hypothesis and reduced-order models;
 - experimental requirements and falsification logic;
