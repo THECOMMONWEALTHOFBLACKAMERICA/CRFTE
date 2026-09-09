@@ -22,7 +22,8 @@ A dated public note records the proposed continuous-relative-temporal-phase exte
 
 The note expressly distinguishes the Martin-Smith continuous-\(\delta\) extension and fixed-depth zero-crossing experiment from the underlying prior-art space-time homogenization framework.
 
-See: [CRTFE-HCM Continuous-Phase Mathematical Note — Dorian Martin-Smith, 9 September 2026](docs/CRTFE-HCM-CONTINUOUS-PHASE-MATHEMATICAL-NOTE-2026-09-09.md).
+- [CRTFE-HCM Continuous-Phase Mathematical Note — Dorian Martin-Smith, 9 September 2026](docs/CRTFE-HCM-CONTINUOUS-PHASE-MATHEMATICAL-NOTE-2026-09-09.md)
+- **Zenodo DOI:** [10.5281/zenodo.22681634](https://doi.org/10.5281/zenodo.22681634)
 
 ## Long-range aerospace objective
 
