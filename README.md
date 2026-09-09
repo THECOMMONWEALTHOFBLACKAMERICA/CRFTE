@@ -12,6 +12,18 @@ The pivot follows technical review of the earlier V0.3/P4E approach. The central
 
 See: [CRTFE-HCM public research pivot](docs/CRTFE-HCM-PUBLIC-RESEARCH-PIVOT-2026-09-09.md).
 
+### Public mathematical note
+
+A dated public note records the proposed continuous-relative-temporal-phase extension used in the current CRTFE-HCM analysis:
+
+\[
+\tilde\xi(\delta)=\frac{m_em_m}{2}\frac{u}{1-u^2}\cos\delta.
+\]
+
+The note expressly distinguishes the Martin-Smith continuous-\(\delta\) extension and fixed-depth zero-crossing experiment from the underlying prior-art space-time homogenization framework.
+
+See: [CRTFE-HCM Continuous-Phase Mathematical Note — Dorian Martin-Smith, 9 September 2026](docs/CRTFE-HCM-CONTINUOUS-PHASE-MATHEMATICAL-NOTE-2026-09-09.md).
+
 ## Long-range aerospace objective
 
 The long-range CRFTE objective remains research into large-area atmospheric electromagnetic momentum transfer without conventional rotors, propellers, turbines, or mechanical compressors.
