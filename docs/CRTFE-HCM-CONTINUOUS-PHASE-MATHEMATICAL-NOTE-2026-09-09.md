@@ -2,6 +2,7 @@
 
 **Author:** Dorian Martin-Smith  
 **Public disclosure date:** 9 September 2026  
+**Zenodo DOI:** [10.5281/zenodo.22681634](https://doi.org/10.5281/zenodo.22681634)  
 **Project:** CRTFE-HCM / CRFTE  
 **Status:** Public technical note; proposed analytical extension to be experimentally tested. Not a patentability opinion and not a claim that the underlying space-time homogenization theory is new.
 
@@ -207,6 +208,10 @@ for two nonzero electric and magnetic modulation channels sharing a common trave
 1. P. A. Huidobro, E. Galiffi, S. Guenneau, R. V. Craster, and J. B. Pendry, “Fresnel drag in space-time-modulated metamaterials,” *PNAS* 116, 24943–24948 (2019).
 2. M. G. Silveirinha and P. A. Huidobro, “Homogenization Theory of Space-Time Metamaterials,” *Physical Review Applied* 16, 014044 (2021).
 
+## Citation
+
+Martin-Smith, D. (2026). *Continuous Relative-Phase Control of Synthetic Magnetoelectric Coupling in Space-Time Modulated Transmission Media*. Zenodo. https://doi.org/10.5281/zenodo.22681634
+
 ---
 
-This GitHub commit establishes a public timestamp for this technical note. A public repository timestamp is not, by itself, a legal determination of inventorship, patentability, validity, ownership, or freedom to operate.
+This GitHub commit establishes a public timestamp for this technical note. The Zenodo DOI provides a persistent citable archival record. Neither record, by itself, is a legal determination of inventorship, patentability, validity, ownership, or freedom to operate.
