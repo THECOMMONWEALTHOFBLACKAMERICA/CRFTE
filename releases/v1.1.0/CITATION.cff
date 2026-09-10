@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this release, cite the Zenodo record and this software release."
+title: "CRTFE-HCM v1.1.0: Dorian Phase Relation Reproducibility and Transferability Release"
+version: "1.1.0"
+date-released: 2026-09-10
+authors:
+  - family-names: "Martin-Smith"
+    given-names: "Dorian Charles"
+    orcid: "https://orcid.org/0009-0008-9926-6840"
+repository-code: "https://github.com/THECOMMONWEALTHOFBLACKAMERICA/CRFTE"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22681634"
+    description: "Related prior Zenodo record; mint a new version-specific DOI when the v1.1.0 archive is deposited."
