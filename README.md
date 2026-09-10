@@ -17,10 +17,12 @@ See: [CRTFE-HCM public research pivot](docs/CRTFE-HCM-PUBLIC-RESEARCH-PIVOT-2026
 A dated public note records the weak-order continuous-relative-phase relation used in the current CRTFE-HCM analysis:
 
 \[
-\tilde\xi(\delta)=\frac{m_em_m}{2}\frac{u}{1-u^2}\cos\delta.
+\tilde\xi_D(\delta)=\frac{m_em_m}{2}\frac{u}{1-u^2}\cos\delta.
 \]
 
-The current attribution boundary recognizes that relative E/M modulation phase as a nonreciprocity tuning parameter is prior art; the Martin-Smith public record focuses on the explicit engineering reduction, fixed-depth falsification protocol, signed-propagation retrieval, finite-frequency validation, and constitutive-control architecture.
+Within the CRTFE-HCM publication record, this explicit weak-order engineering parametrization and its associated fixed-depth phase-sweep/falsification formulation are referred to as the **Dorian Phase Relation**.
+
+The naming boundary is explicit: relative electric/magnetic modulation phase as a nonreciprocity tuning parameter, space-time modulation, synthetic magnetoelectric coupling generally, and the underlying homogenization framework are prior art. The name applies to the specific CRTFE-HCM parametrization and associated falsification framing recorded by Dorian Martin-Smith; it does not claim invention of the underlying prior-art theory.
 
 - [CRTFE-HCM Continuous-Phase Mathematical Note — Dorian Martin-Smith, 9 September 2026](docs/CRTFE-HCM-CONTINUOUS-PHASE-MATHEMATICAL-NOTE-2026-09-09.md)
 - **Zenodo DOI:** [10.5281/zenodo.22681634](https://doi.org/10.5281/zenodo.22681634)
