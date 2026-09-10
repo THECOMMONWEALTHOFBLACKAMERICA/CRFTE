@@ -50,6 +50,57 @@ Two direct numerical tests that can actually fail the relation were then run.
 
 These remain numerical results. They do not validate hardware behavior, real material loss, fabrication tolerance, or the unresolved near-luminal multiband regime.
 
+### Held-out transferability stress test
+
+A stronger predeclared transferability test was then run to determine whether the Dorian Phase Relation behaves like a portable carrier-level effective-medium law rather than a fitted signature of one finite terminated device.
+
+The first implementation failed because `u` was varied by changing the spatial wavenumber `K` while keeping the pump frequency fixed, which changed the discrete spatial modulation geometry across the sweep. That failed run is retained as an implementation-control result. Before the corrected run, the protocol was amended and frozen so that `K d = pi/6` remained fixed, `f_m` set `u`, `f_0 = r f_m`, the pass/fail thresholds were unchanged, and a fresh held-out split was generated.
+
+For the corrected fixed-`K` experiment, the primary model was
+
+\[
+\tilde\xi_D = 0.005\frac{u}{1-u^2}\cos\delta + D r^2,
+\]
+
+with `0.005 = m_e m_m / 2` fixed analytically and only the finite-frequency background coefficient `D` estimated from the training set.
+
+Across **96 held-out finite-device conditions** spanning changed length, termination, phase, frequency ratio, modulation velocity, and incidence direction:
+
+- median non-null relative error: **2.624%**;
+- 95th-percentile relative error: **6.806%**;
+- worst non-null relative error: **10.384%**;
+- median absolute carrier-phase error: **8.668e-06 rad**;
+- 95th-percentile absolute carrier-phase error: **4.719e-04 rad**.
+
+All predeclared analytic-coefficient thresholds pass.
+
+A one-time coefficient retrieval from training gives `C = 0.0051064`, approximately **2.13%** above the analytical weak-order value `0.005`.
+
+Held-out velocity-law competition also favors the Dorian form. The `u/(1-u^2)` model has held-out SSE `9.67e-7`, while the nearest tested competitor, `u/(1-u)`, has held-out SSE `9.91e-6`, approximately **10.24x larger**.
+
+Additional diagnostics show:
+
+- after simple length-intercept de-embedding over `N = 48, 96, 144, 192`, the bulk estimate differs from the analytic Dorian value by at most about **3.02%** across the tested `u = 0.15, 0.40, 0.60` cases;
+- away from the quadrature null, changing/swapping terminations changes retrieved `xi` by at most about **0.745%** of the mean signal;
+- static modulation is reciprocal to numerical precision;
+- C-only and L-only residuals are each about **0.107%** of the two-channel signal at the control point;
+- `delta -> delta + pi` reverses the leading directional term;
+- reversing the traveling modulation direction reverses the retrieved coupling to numerical precision;
+- full harmonic-balance output is converged through `H = 15` at the tested high-`u` stress point.
+
+**Current verdict:** Stage 1A carrier-law transferability passes under the frozen numerical thresholds. A complete reduced effective-medium model that predicts every held-out complex Floquet sideband from frozen constitutive parameters has not yet been specified, so **full-sideband transferability remains open**.
+
+- [Transferability Stress-Test Report](docs/CRTFE-HCM-TRANSFERABILITY-STRESS-TEST-2026-09-10.md)
+- [Fixed-K transferability protocol](protocol/CRTFE-HCM-TRANSFERABILITY-PROTOCOL-FIXED-K-2026-09-10.json)
+- [Harmonic-balance transferability solver](analysis/crtfe_hcm_transferability_hb.py)
+- [Held-out velocity-law model selection](data/CRTFE-HCM-fixedK-model-selection-heldout-2026-09-10.csv)
+- [Analytic-coefficient held-out score](data/CRTFE-HCM-fixedK-score-analytic-C-fixed-2026-09-10.csv)
+- [One-time-fit held-out score](data/CRTFE-HCM-fixedK-score-one-time-fit-2026-09-10.csv)
+- [Length de-embedding summary](data/CRTFE-HCM-fixedK-length-deembedding-summary-2026-09-10.csv)
+- [Termination-invariance summary](data/CRTFE-HCM-fixedK-termination-summary-2026-09-10.csv)
+- [Symmetry controls](data/CRTFE-HCM-fixedK-symmetry-controls-2026-09-10.csv)
+- [Fixed-K harmonic-convergence data](data/CRTFE-HCM-fixedK-H-convergence-2026-09-10.csv)
+
 ### Energy and wave-action consistency checks — corrected interpretation
 
 The finite terminated-ladder energy and wave-action calculations remain useful, but their evidentiary role has been corrected.
@@ -83,11 +134,12 @@ The present public numerical record supports:
 1. the analytic weak-order phase relation in its stated asymptotic regime;
 2. direct terminated-device nonreciprocal phase behavior consistent with the `cos(delta)` law;
 3. explicit functional-form selection of `u/(1-u^2)` over tested alternatives on `u = 0.05` to `0.70`;
-4. spatial- and harmonic-convergence checks on the finite-frequency residual in the intended V1 regime.
+4. held-out carrier-level transferability across changed finite-device conditions under the corrected fixed-geometry protocol;
+5. spatial- and harmonic-convergence checks on the finite-frequency residual in the intended V1 regime.
 
-The direct energy-balance and Floquet pseudounitary calculations are now classified as simulator/scattering consistency checks, not independent falsifiers of the phase relation.
+The direct energy-balance and Floquet pseudounitary calculations are classified as simulator/scattering consistency checks, not independent falsifiers of the phase relation.
 
-The near-luminal multiband regime remains unresolved, and no hardware RF-performance claim has been demonstrated.
+The full-sideband transferable reduced effective-medium model remains open. The near-luminal multiband regime remains unresolved, and no hardware RF-performance claim has been demonstrated.
 
 ## Long-range aerospace objective
 
