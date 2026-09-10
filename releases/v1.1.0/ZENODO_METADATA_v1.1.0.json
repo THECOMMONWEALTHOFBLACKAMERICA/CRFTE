@@ -1,0 +1,21 @@
+{
+  "title": "CRTFE-HCM v1.1.0: Dorian Phase Relation Reproducibility and Transferability Release",
+  "upload_type": "software",
+  "version": "1.1.0",
+  "publication_date": "2026-09-10",
+  "creators": [
+    {
+      "name": "Martin-Smith, Dorian Charles",
+      "orcid": "0009-0008-9926-6840"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.22681634",
+      "relation": "isNewVersionOf",
+      "resource_type": "publication-report"
+    }
+  ],
+  "description": "Versioned reproducibility archive for CRTFE-HCM carrier-level transferability and near-luminal mathematical analysis. Contains code, exact 48-C/48-L topology, frozen environment, frozen fixed-K protocol and split, complete raw Floquet sidebands, expected outputs, mandatory controls, the known invalid varying-K/fixed-fm path, and a one-command reproduction workflow. Numerical/theoretical only; no hardware-performance claim.",
+  "new_version_specific_doi": "TO BE MINTED BY ZENODO ON DEPOSIT"
+}
