@@ -1,0 +1,20 @@
+# Full reproduction verification
+Date: 2026-09-10
+Execution: CRTFE_SKIP_INSTALL=1 CRTFE_WORKERS=4 ./reproduce.sh
+Reason install step skipped: sandbox has no outbound package-network access; frozen package versions were already present in the runtime.
+
+Solver rerun: COMPLETE (176/176 conditions)
+Frozen split SHA-256: 1abef1d3586e937fd57049719cd3f29cd8495bb80ab4d66eff64beb343e24123
+
+PASS median relative <= 5%
+PASS p95 relative <= 10%
+PASS worst relative <= 20%
+PASS median phase <= 2e-4 rad
+PASS p95 phase <= 5e-4 rad
+PASS Dorian u/(1-u^2) has lowest heldout SSE
+PASS median_rel_nonnull: actual=0.026241346092 reference=0.026241346092 tol=1.31e-06
+PASS p95_rel_nonnull: actual=0.0680602720185 reference=0.0680602720185 tol=3.4e-06
+PASS worst_rel_nonnull: actual=0.103835216427 reference=0.103835216427 tol=5.19e-06
+PASS median_abs_phase_err_rad: actual=8.66791933989e-06 reference=8.66791933989e-06 tol=4.33e-10
+PASS p95_abs_phase_err_rad: actual=0.000471909738389 reference=0.000471909738389 tol=2.36e-08
+PASS heldout_SSE: actual=1.00504402801e-06 reference=1.00504402801e-06 tol=5.03e-11
