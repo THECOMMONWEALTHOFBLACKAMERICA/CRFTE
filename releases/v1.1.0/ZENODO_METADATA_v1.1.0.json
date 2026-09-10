@@ -14,8 +14,22 @@
       "identifier": "10.5281/zenodo.22681634",
       "relation": "isNewVersionOf",
       "resource_type": "publication-report"
+    },
+    {
+      "identifier": "https://github.com/THECOMMONWEALTHOFBLACKAMERICA/CRFTE/releases/tag/v1.1.0",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
     }
   ],
-  "description": "Versioned reproducibility archive for CRTFE-HCM carrier-level transferability and near-luminal mathematical analysis. Contains code, exact 48-C/48-L topology, frozen environment, frozen fixed-K protocol and split, complete raw Floquet sidebands, expected outputs, mandatory controls, the known invalid varying-K/fixed-fm path, and a one-command reproduction workflow. Numerical/theoretical only; no hardware-performance claim.",
-  "new_version_specific_doi": "TO BE MINTED BY ZENODO ON DEPOSIT"
+  "keywords": [
+    "space-time metamaterials",
+    "nonreciprocity",
+    "magnetoelectric coupling",
+    "Floquet systems",
+    "computational electromagnetics",
+    "Dorian Phase Relation",
+    "CRTFE-HCM",
+    "reproducibility"
+  ],
+  "description": "Versioned reproducibility archive for the CRTFE-HCM Stage 1A carrier-level transferability result and current near-luminal mathematical analysis. The tagged GitHub release contains the exact 48-C/48-L topology, frozen numerical environment, fixed-K protocol and held-out split, harmonic-balance/reproduction/verification code, complete complex h=-15..15 reference sideband output, expected outputs and controls, the known-invalid fixed-f_m/varying-K path, and a one-command reproduction workflow. The GitHub release archive SHA-256 is 3721dc604f12a3ac5818a0c39c031a0d2439cb6083bde604158a475a00a8d86b. The frozen Stage 1A carrier-level acceptance gates reproduce; full-sideband reduced-effective-model transferability remains open. Numerical/theoretical only; no experimental hardware-performance claim."
 }
