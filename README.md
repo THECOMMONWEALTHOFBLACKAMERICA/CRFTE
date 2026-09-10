@@ -1,6 +1,6 @@
 # CRFTE / CRTFE Research Program
 
-> **Current status — 9 September 2026:** early-stage research only. No working lift hardware or flight vehicle has been demonstrated.
+> **Current status — 10 September 2026:** early-stage research only. No working lift hardware or flight vehicle has been demonstrated.
 
 ## Current research priority
 
@@ -14,16 +14,22 @@ See: [CRTFE-HCM public research pivot](docs/CRTFE-HCM-PUBLIC-RESEARCH-PIVOT-2026
 
 ### Public mathematical note
 
-A dated public note records the proposed continuous-relative-temporal-phase extension used in the current CRTFE-HCM analysis:
+A dated public note records the weak-order continuous-relative-phase relation used in the current CRTFE-HCM analysis:
 
 \[
 \tilde\xi(\delta)=\frac{m_em_m}{2}\frac{u}{1-u^2}\cos\delta.
 \]
 
-The note expressly distinguishes the Martin-Smith continuous-\(\delta\) extension and fixed-depth zero-crossing experiment from the underlying prior-art space-time homogenization framework.
+The current attribution boundary recognizes that relative E/M modulation phase as a nonreciprocity tuning parameter is prior art; the Martin-Smith public record focuses on the explicit engineering reduction, fixed-depth falsification protocol, signed-propagation retrieval, finite-frequency validation, and constitutive-control architecture.
 
 - [CRTFE-HCM Continuous-Phase Mathematical Note — Dorian Martin-Smith, 9 September 2026](docs/CRTFE-HCM-CONTINUOUS-PHASE-MATHEMATICAL-NOTE-2026-09-09.md)
 - **Zenodo DOI:** [10.5281/zenodo.22681634](https://doi.org/10.5281/zenodo.22681634)
+
+### Open technical disclosure
+
+As of 10 September 2026, CRTFE-HCM is being developed as an openly documented research program rather than held back for a planned patent filing. The public technical disclosure includes the analytical/Floquet validation, signed directional retrieval, multi-observable constitutive-state estimation, reachable-manifold inverse control, identifiability/conditioning gates, refusal behavior, V1 operating guidance, and the adaptive magnet-free RF-front-end application path.
+
+See: [CRTFE-HCM — Open Technical Disclosure: Physics, Floquet Validation, and Constitutive-State Control](docs/CRTFE-HCM-OPEN-TECHNICAL-DISCLOSURE-2026-09-10.md).
 
 ## Long-range aerospace objective
 
@@ -33,7 +39,7 @@ That remains a research objective, not a claim of demonstrated propulsion.
 
 ## Program lineage
 
-- **CRTFE-HCM:** current experimental-development priority; public details are intentionally non-enabling while IP review is active.
+- **CRTFE-HCM:** current experimental-development priority; the core mathematical, validation, and constitutive-control architecture is now intentionally public.
 - **P4 / P4E:** atmospheric electromagnetic propulsion branch retained as research and falsification history.
 - **P4A / P4B / P4C / P4D:** earlier current-drive, magnetic-geometry, and plasma-conditioning studies retained for comparison and historical continuity.
 - **Counter-rotating / traveling-field studies:** historical branches unless later evidence establishes a measurable advantage.
@@ -48,7 +54,7 @@ A simulation is not a test. A blueprint is not working hardware. A mathematicall
 
 ## Public disclosure boundary
 
-This repository is the public historical and research record. New enabling implementation details, unpublished control methods, exact operating parameters, confidential invention material, and other potentially protectable engineering details are not to be committed here until an explicit disclosure decision is made.
+CRTFE-HCM's core constitutive-control architecture is now intentionally part of the public research record. Other CRFTE material that has not been deliberately released remains subject to the repository's existing disclosure controls.
 
 See: [IP disclosure hold](IP-DISCLOSURE-HOLD.md).
 
