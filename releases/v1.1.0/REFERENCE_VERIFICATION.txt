@@ -1,0 +1,6 @@
+PASS median relative <= 5%
+PASS p95 relative <= 10%
+PASS worst relative <= 20%
+PASS median phase <= 2e-4 rad
+PASS p95 phase <= 5e-4 rad
+PASS Dorian u/(1-u^2) has lowest heldout SSE
