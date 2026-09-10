@@ -37,13 +37,18 @@ A terminated finite-ladder calculation has now been used to test explicit modula
 
 At the representative V1 point (`N=48`, `M=4`, `m_e=m_m=0.10`, `f_m=3 MHz`, `f_0=150 kHz`, 50-ohm terminations), the direct time-domain energy balance closes to a relative residual of approximately `5.75e-11` after settling. A single-input action-flux calculation gives an outgoing/incoming action ratio of approximately `0.999999965`, and a central multi-input photon-flux-normalized Gram test converges toward the expected pseudounitary relation as output-sideband coverage and numerical resolution are increased.
 
+A follow-up convergence study separates the previously coupled numerical variables. At fixed dynamics, the energy-closure residual falls by approximately fourfold for each doubling of final quadrature samples, consistent with second-order trapezoidal convergence. At fixed settling, the ODE solution is effectively converged by about 60 points per pump period under the stated tolerances. Settling is separately measured by state periodicity rather than by the conservation residual itself.
+
 The same work also records an important limitation: the existing near-luminal transfer-matrix branch tracker does **not** yet produce a stable H-converged gap width or attenuation interval. No near-luminal directional bandgap is claimed.
 
 - [Finite-Ladder Energy and Wave-Action Falsification Gate](docs/CRTFE-HCM-ENERGY-WAVE-ACTION-GATE-2026-09-10.md)
+- [Separated Energy-Gate Convergence Addendum](docs/CRTFE-HCM-ENERGY-CONVERGENCE-ADDENDUM-2026-09-10.md)
 - [Near-Luminal H-Convergence Warning](docs/CRTFE-HCM-NEAR-LUMINAL-H-CONVERGENCE-WARNING-2026-09-10.md)
 - [Energy-gate script](analysis/crtfe_hcm_energy_gate.py)
+- [Separated convergence script](analysis/crtfe_hcm_energy_convergence.py)
 - [Floquet scattering / action-flux Gram script](analysis/crtfe_hcm_floquet_smatrix_gate.py)
 - [Energy and wave-action numerical results](data/CRTFE-HCM-energy-wave-action-gate-results-2026-09-10.csv)
+- [Separated energy convergence data](data/CRTFE-HCM-energy-convergence-separated-2026-09-10.csv)
 - [Near-luminal convergence data](data/CRTFE-HCM-near-luminal-H-convergence-2026-09-10.csv)
 
 These remain numerical results. No experimental isolation, insertion-loss, efficiency, or gain claim is made.
