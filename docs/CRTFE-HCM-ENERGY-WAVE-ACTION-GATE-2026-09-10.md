@@ -1,28 +1,29 @@
-# CRTFE-HCM — Finite-Ladder Energy and Wave-Action Falsification Gate
+# CRTFE-HCM — Finite-Ladder Energy and Wave-Action Consistency Checks
 
 **Author:** Dorian Martin-Smith  
 **Date:** 10 September 2026  
-**Status:** Public numerical validation record; theoretical/numerical only. No experimental RF-performance claim.
+**Correction status:** Revised after adversarial review.  
+**Status:** Public numerical consistency record; theoretical/numerical only. No experimental RF-performance claim.
 
-## 1. Question being tested
+## Correction notice
 
-The earlier CRTFE-HCM work established a bounded low/moderate-`u` effective-medium result for the phase-dependent synthetic magnetoelectric coupling,
+The original version of this document described the direct finite-ladder energy-balance calculation as a physics **falsification gate**. That characterization was too strong.
+
+For the ideal time-varying L/C ladder written in charge/flux variables, the relation
 
 \[
-\tilde\xi(\delta)\approx \frac{m_e m_m}{2}\frac{u}{1-u^2}\cos\delta,
+P_{\rm in}+P_{\rm pump}-P_{\rm out}-\frac{dU}{dt}=0
 \]
 
-and numerically separated a same-channel finite-frequency residual from spatial and Floquet-harmonic truncation effects in the intended V1 regime.
+follows algebraically from the model equations, KCL/KVL, and the chosen stored-energy definition. Therefore a small closure residual primarily tests the numerical implementation, integration, and quadrature. It is a useful simulator/unit-consistency check, but it is **not an independent falsification of the Dorian Phase Relation or of nonreciprocity**.
 
-The next falsification gate is more fundamental:
+The Floquet wave-action / pseudounitary calculation is also retained as a numerical consistency check on the sideband representation. Pseudounitarity does not by itself establish passivity, bounded gain, stability, nonreciprocity, or the Dorian Phase Relation.
 
-> Does a terminated, finite, explicitly time-modulated L/C ladder obey the correct energy exchange with its modulation pump, and does its Floquet scattering behavior satisfy the expected wave-action conservation structure?
+Actual direct falsification tests of the phase relation are now recorded separately in:
 
-Until this gate is passed, quantitative gain, isolation, insertion-loss, or efficiency claims are not earned.
+- [CRTFE-HCM — Direct Falsification Tests After Adversarial Review](CRTFE-HCM-DIRECT-FALSIFICATION-TESTS-2026-09-10.md)
 
-## 2. Independent time-domain model
-
-The conservation test was implemented independently of the earlier bulk Floquet eigenvalue retrieval.
+## 1. Model and energy identity
 
 The states are capacitor charge and inductor flux,
 
@@ -32,61 +33,56 @@ q_n=C_n(t)V_n,
 \phi_n=L_n(t)I_n.
 \]
 
-Using `q` and `phi` avoids hiding the time variation of the reactive elements inside an approximate impedance representation.
-
-For an ideal time-varying capacitor,
+For ideal time-varying reactive elements,
 
 \[
 U_C=\frac{q^2}{2C(t)},
-\]
-
-and for an ideal time-varying inductor,
-
-\[
+\qquad
 U_L=\frac{\phi^2}{2L(t)}.
 \]
 
-Differentiating gives the modulation-work terms. With the convention used here, pump power delivered to the electrical system is
+With the sign convention used here, modulation-pump power delivered to the electrical system is
 
 \[
-\boxed{
 P_{\rm pump}(t)
 =-\frac12\sum_n V_n^2\dot C_n
 -\frac12\sum_n I_n^2\dot L_n.
-}
 \]
 
-The finite-device conservation identity is therefore
+Differentiating the stored energy and substituting the ladder equations gives the exact model identity
 
 \[
 \boxed{
-P_{\rm in}+P_{\rm pump}-P_{\rm out}-\frac{dU}{dt}=0
+P_{\rm in}+P_{\rm pump}-P_{\rm out}-\frac{dU}{dt}=0.
 }
 \]
 
-for the ideal lossless ladder. A dissipative implementation would add `P_loss` on the output side.
+Accordingly, the numerical residual of this relation measures implementation and quadrature consistency rather than independently testing the underlying phase law.
 
-## 3. V1 test point
+## 2. Exact finite-ladder topology used in the published scripts
 
-The principal test used:
+The canonical published model uses:
 
-- `N = 48` cells
-- `M = 4` modulation periods
-- `L0 = 625 nH`
-- `C0 = 250 pF`
-- `m_e = m_m = 0.10`
-- `f_m = 3 MHz`
-- `f_0 = 150 kHz`
-- `f_0/f_m = 0.05`
-- physical midpoint phase reference for the L channel
-- `delta = 0`
-- 50-ohm source and load terminations
+- `N = 48` shunt capacitors;
+- `N = 48` series inductors;
+- the final series inductor feeds the 50-ohm load;
+- `M = 4` modulation periods over the 48-cell ladder;
+- `L0 = 625 nH`;
+- `C0 = 250 pF`;
+- `m_e = m_m = 0.10`;
+- `f_m = 3 MHz`;
+- `f_0 = 150 kHz`;
+- `Vsrc = 1.0 V`;
+- 50-ohm source and load terminations;
+- capacitor modulation phase indexed at cell positions `n`;
+- inductor modulation phase referenced at physical midpoints `n + 1/2`;
+- `delta = 0` for the principal numerical example.
 
-This is intentionally in the bounded subluminal V1 region, away from the unresolved near-luminal multiband boundary.
+The topology specification is stated explicitly because an independent adversarial reimplementation using 48 capacitors but only 47 inductors produced a different pump-power value. That difference reflects a different terminated ladder, not failure to reproduce the canonical published script.
 
-## 4. Direct power closure
+## 3. Direct numerical consistency result
 
-After ten carrier periods of settling and with 50 integration points per modulation period, the averaged result was:
+At the representative V1 point, the canonical model gives approximately:
 
 | Quantity | Result |
 |---|---:|
@@ -97,45 +93,30 @@ After ten carrier periods of settling and with 50 integration points per modulat
 | Absolute closure residual | -1.443e-13 W |
 | Relative closure residual | -5.75e-11 |
 
-Thus the small excess of output power over net RF input is quantitatively supplied by the modulation pump. It is not energy created by the effective magnetoelectric term.
+These numbers show that the code evaluates its own energy identity to high numerical precision. They should **not** be interpreted as independent evidence that the Dorian Phase Relation is physically correct.
 
-The closure error also decreases under tighter temporal resolution. Representative relative residuals were approximately:
+The separate convergence addendum shows that the residual behaves as expected for numerical quadrature/integration error:
 
-- 20 points/pump period: `4.39e-8`
-- 40 points/pump period: `1.98e-9`
-- 80 points/pump period: `1.62e-9`
-- longer-settled 50 points/pump run: `5.75e-11`
+- [Separated Energy-Gate Convergence Addendum](CRTFE-HCM-ENERGY-CONVERGENCE-ADDENDUM-2026-09-10.md)
 
-## 5. Null and phase controls
+## 4. Pump-off and single-channel controls
 
-The same finite-ladder energy identity was checked with the pump disabled, C-only modulation, L-only modulation, and both channels active.
+Pump-off, C-only, L-only, and combined-channel cases were also evaluated.
 
-All cases closed at approximately `1e-9` to `1e-8` relative error or better in the shorter convergence runs.
-
-Importantly, C-only and L-only modulation each exchange real energy with the pump even though the homogenized same-channel magnetoelectric coupling tends to zero in the low-frequency limit.
-
-That distinction is important:
+The important conceptual distinction remains:
 
 \[
 \boxed{
 \text{pump energy exchange} \neq \text{synthetic magnetoelectric coupling}.
 }
-\]
 
-At the representative test point, approximate pump powers were:
+Single-channel modulation can exchange real energy with the external modulation source while the homogenized same-channel magnetoelectric coupling tends to zero in the low-frequency limit.
 
-| Modulation | Pump work |
-|---|---:|
-| pump off | 0 |
-| C only | 3.366 uW |
-| L only | 3.348 uW |
-| C + L, delta=0 | 10.644 uW |
+These controls are useful for debugging and bookkeeping, but because the energy identity holds for arbitrary prescribed `C_n(t)` and `L_n(t)`, they are not direct tests of the Dorian Phase Relation.
 
-The power balance also closed for `delta = 0, 90, 180, 270 degrees`. Pump exchange itself varies with relative phase, as expected for a driven parametric system.
+## 5. Floquet sideband / wave-action consistency
 
-## 6. Sideband-resolved action-flux test
-
-A second calculation used a complex single-quasifrequency incident wave so that positive- and negative-frequency Floquet channels could be tracked separately rather than being automatically paired by a real cosine drive.
+A complex single-quasifrequency drive was used to extract positive- and negative-frequency Floquet sidebands separately.
 
 For sideband frequencies
 
@@ -143,98 +124,48 @@ For sideband frequencies
 \omega_n=\omega_0+n\Omega,
 \]
 
-wave-action conservation requires the sign of `omega_n` to be retained. In an action/photon-flux normalized basis the relevant finite Floquet scattering relation is of pseudounitary form,
+an action-normalized finite scattering representation was tested against a pseudounitary metric of the form
 
 \[
-\boxed{
 S_F^\dagger V S_F=V,
-}
 \]
 
-where `V` assigns `+1` to positive-frequency channels and `-1` to negative-frequency channels.
+where the sign of each sideband frequency is retained in the indefinite metric `V`.
 
-For a single carrier input at the V1 point, the outgoing signed action sum divided by the incoming action converged to
+For a single carrier input, the outgoing/incoming signed action ratio was approximately
 
 \[
-\boxed{0.999999965}
+0.999999965.
 \]
 
-after ten settling periods. Including output sidebands beyond approximately `|n|=3` changed the result negligibly at this modulation depth.
+For a central multi-input set, the maximum Gram residual decreased as numerical resolution and output-sideband coverage were increased:
 
-The dominant converted power appeared in the first upper and lower sidebands. The total outgoing energy exceeded the incident RF energy by approximately `10.644 uW`, matching the independently calculated modulation-pump work to about `1.8e-5` relative in that cross-method comparison.
-
-## 7. Multi-input Floquet Gram test
-
-A broader finite-scattering test was then constructed using both left and right incidence for input Floquet channels `n = -1, 0, +1`.
-
-Outputs were retained on both ports over successively broader sideband sets and converted to an action-flux normalized basis using the sideband-frequency magnitude, while the metric retained the sign of each sideband frequency.
-
-The maximum element of
-
-\[
-S^\dagger V_{\rm out} S-V_{\rm in}
-\]
-
-decreased as settling, temporal resolution, and output-sideband coverage were increased:
-
-| Output range / numerical setting | Maximum matrix-element residual | Frobenius residual |
+| Output range / setting | Maximum matrix-element residual | Frobenius residual |
 |---|---:|---:|
 | `n_out = +/-5`, settle 4, 40 points/pump | 2.45e-6 | 6.55e-6 |
 | `n_out = +/-6`, settle 5, 50 points/pump | 1.26e-6 | 4.01e-6 |
 | `n_out = +/-7`, settle 8, 60 points/pump | 8.97e-7 | 2.08e-6 |
 
-This is strong numerical evidence for the expected wave-action structure in the tested finite ladder.
+This supports consistency of the implemented Floquet normalization and truncation trend. It does **not** certify passivity or stability: an indefinite-metric pseudounitary system can support parametric amplification.
 
-It is **not** a proof of the infinite-dimensional Floquet scattering matrix. The reported Gram test covers a central set of incident channels and an explicitly truncated, converging set of outgoing channels.
+## 6. Near-luminal regime remains unresolved
 
-## 8. Energy-gate conclusion
+The existing transfer-matrix branch tracker does not produce a stable harmonic-order-converged gap width or attenuation interval near the luminal region.
 
-For the intended V1 operating regime, the energy gate does not expose a conservation inconsistency.
+Therefore no near-luminal directional bandgap, unidirectional branch, or physical divergence is claimed.
 
-The direct time-domain calculation closes
+A better-conditioned scattering-matrix recursion or generalized-eigenvalue formulation is required before classifying that region.
 
-\[
-P_{\rm in}+P_{\rm pump}=P_{\rm out}+dU/dt
-\]
+## 7. Corrected evidence hierarchy
 
-to numerical precision, and the independent sideband-resolved calculation is consistent with Floquet wave-action/pseudounitary conservation.
-
-Therefore:
-
-\[
-\boxed{
-\text{The finite V1 numerical ladder passes the present energy-accounting falsification gate.}
-}
-\]
-
-This result does **not** yet establish experimental efficiency, insertion loss, isolation, gain, or hardware performance.
-
-## 9. Near-luminal classification remains open
-
-After the energy gate closed, a secondary attempt was made to classify the high-`u` region using the existing transfer-matrix branch tracker and increasing Floquet harmonic order.
-
-That test did **not** produce a converged gap width or stable attenuation interval. The apparent onset moved strongly with harmonic order, and high-order transfer matrices became increasingly difficult to classify robustly.
-
-Therefore no near-luminal directional bandgap is claimed from this calculation.
-
-The correct conclusion is:
-
-\[
-\boxed{
-\text{near-luminal multiband behavior is unresolved by the present branch-tracking solver.}
-}
-\]
-
-A better-conditioned generalized eigenvalue/scattering formulation is required before labeling the structure a physical stopband, directional gap, mode coalescence, or unidirectional branch.
-
-## 10. Updated evidence hierarchy
-
-1. **Low/moderate `u`:** phase law and bounded `u/(1-u^2)` effective-medium scaling are numerically supported.
-2. **Finite-frequency same-channel residual:** survives spatial and Floquet-harmonic convergence in the intended V1 region and scales approximately as `(f0/fm)^2`.
-3. **Finite-device energy accounting:** passes direct pump-to-field power closure at the tested V1 point and controls.
-4. **Floquet wave action:** central multi-input action-flux Gram test converges toward the expected pseudounitary relation.
-5. **Near-luminal regime:** not yet classified; no directional-gap claim is made.
-6. **Hardware RF performance:** not experimentally demonstrated.
+1. **Analytic weak-order derivation:** supports the CRTFE-HCM phase relation within its stated asymptotic regime.
+2. **Direct terminated-device nonreciprocity phase sweep:** now tested separately and reported in the direct falsification record.
+3. **Velocity functional form:** now tested against competing candidate functions over `u = 0.05` to `0.70`.
+4. **Spatial and harmonic convergence:** finite-frequency residual survives the tested `N` and `H` controls in the intended V1 regime.
+5. **Direct energy closure:** simulator/unit-consistency test only; not an independent physics falsifier.
+6. **Floquet wave-action Gram relation:** sideband/scattering consistency check only; not a passivity, stability, or nonreciprocity certificate.
+7. **Near-luminal regime:** unresolved.
+8. **Hardware:** untested.
 
 ## References
 
@@ -244,4 +175,4 @@ A better-conditioned generalized eigenvalue/scattering formulation is required b
 
 ## Reproducibility note
 
-The numerical scripts used for the direct time-domain energy gate and the finite Floquet scattering Gram test are published with this record. All results remain numerical until reproduced independently and tested in hardware.
+The canonical numerical scripts remain public. This correction preserves the numerical results while changing the evidentiary interpretation of the energy and wave-action checks. No hardware isolation, insertion loss, gain, efficiency, or experimental nonreciprocity claim is made.
