@@ -1,0 +1,2 @@
+model,C,D,n,n_nonnull,median_rel_nonnull,p95_rel_nonnull,worst_rel_nonnull,median_abs_phase_err_rad,p95_abs_phase_err_rad,worst_abs_phase_err_rad,heldout_SSE
+analytic_C_fixed,0.005,-0.004260776750239471,96,72,0.026241346091987222,0.06806027201853652,0.10383521642749212,8.667919339894133e-06,0.0004719097383890198,0.0008897554071004982,1.0050440280079462e-06
