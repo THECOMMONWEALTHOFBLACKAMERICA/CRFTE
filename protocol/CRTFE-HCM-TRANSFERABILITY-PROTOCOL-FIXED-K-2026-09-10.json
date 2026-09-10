@@ -1,0 +1,51 @@
+{
+  "protocol_name": "CRTFE-HCM Dorian Phase Relation transferability test - Stage 1A fixed-K amendment",
+  "frozen_date": "2026-09-10",
+  "reason_for_amendment": "The first implementation varied u by varying K at fixed fm, causing Kd to reach 4.712 rad/cell at u=0.05 and changing the spatial modulation geometry across u. That does not match the intended fixed-geometry velocity-scaling test or the earlier validated u-sweep. Stage 1A fixes Kd and varies fm to set u. No Stage-1 held-out score is used for fitting or threshold changes.",
+  "supersedes_for_physics_verdict": "CRTFE-HCM_TRANSFERABILITY_PROTOCOL_FROZEN_2026-09-10.json Stage-1 u-control path only; the failed Stage-1 result is retained as an implementation-control record.",
+  "fixed_spatial_phase_per_cell_rad": 0.5235987755982988,
+  "fixed_spatial_phase_per_cell_description": "pi/6, equal to M=4 periods over the canonical N=48 V1 ladder; length changes preserve this same per-cell modulation geometry, so total modulation periods scale with N",
+  "u_control": "fm = u * (Kd) / (2*pi*sqrt(L0*C0)); f0 = r * fm",
+  "L0_H": 6.25e-7,
+  "C0_F": 2.5e-10,
+  "me": 0.1,
+  "mm": 0.1,
+  "H": 15,
+  "training_cartesian": {
+    "N": [96, 144],
+    "Z_pairs_ohm": [[50,50]],
+    "delta_deg": [0,45,90,135,180],
+    "r_f0_over_fm": [0.01,0.02],
+    "u": [0.10,0.25,0.40,0.55]
+  },
+  "heldout_population": {
+    "N": [48,192],
+    "Z_pairs_ohm": [[50,25],[50,75],[50,100],[25,50],[75,50],[100,50]],
+    "delta_deg": [22.5,67.5,112.5,157.5,225,270,315],
+    "r_f0_over_fm": [0.015,0.025,0.03],
+    "u": [0.05,0.15,0.30,0.50,0.60,0.70]
+  },
+  "heldout_sampling": {
+    "seed": 2026091002,
+    "number_of_device_conditions": 96,
+    "uniform_without_replacement": true,
+    "both_incidence_sides": true
+  },
+  "retrieval_and_models": {
+    "xi_hat": "-arg(S21/S12)/(2*N*omega0*sqrt(L0*C0))",
+    "primary": "xi = C*u/(1-u^2)*cos(delta) + D*r^2",
+    "analytic_C": 0.005,
+    "one_time_fit": "fit C,D on training only then freeze",
+    "competing_velocity_laws": ["u","u/(1-u)","u/(1-u^2)","u/(1-u^2)^(3/2)"],
+    "same_background_for_all": "D*r^2"
+  },
+  "pass_fail_thresholds_unchanged": {
+    "median_relative_error_non_null_lte": 0.05,
+    "p95_relative_error_non_null_lte": 0.10,
+    "worst_relative_error_non_null_lte": 0.20,
+    "median_absolute_phase_error_rad_lte": 0.0002,
+    "p95_absolute_phase_error_rad_lte": 0.0005,
+    "Dorian_velocity_law_must_have_lowest_heldout_SSE": true
+  },
+  "full_sideband_limit": "Stage 1A releases converged h=-15..15 Floquet scattering but does not claim a full-sideband reduced-effective-model prediction PASS because that separate reduced Floquet constitutive model has not yet been specified."
+}
