@@ -1,0 +1,45 @@
+{
+  "release_version": "1.1.0",
+  "source_commit": "776a58b4218aeabf477d4e4b62b32aa898c1e68d",
+  "expected_primary_verdict": "PASS: Stage 1A carrier-level held-out transferability; full-sideband reduced effective-medium prediction remains open.",
+  "analytic_fixed_C_score": {
+    "model": "analytic_C_fixed",
+    "C": 0.005,
+    "D": -0.0042607767502394,
+    "n": 96,
+    "n_nonnull": 72,
+    "median_rel_nonnull": 0.0262413460919872,
+    "p95_rel_nonnull": 0.0680602720185365,
+    "worst_rel_nonnull": 0.1038352164274921,
+    "median_abs_phase_err_rad": 8.667919339894133e-06,
+    "p95_abs_phase_err_rad": 0.000471909738389,
+    "worst_abs_phase_err_rad": 0.0008897554071004,
+    "heldout_SSE": 1.0050440280079462e-06
+  },
+  "heldout_velocity_winner": {
+    "model": "u/(1-u^2)",
+    "C": 0.0051063844051993,
+    "D": -0.0042607767502395,
+    "train_SSE": 4.916176916269124e-08,
+    "heldout_SSE": 9.673966230700587e-07,
+    "heldout_RMSE": 0.0001003845015775
+  },
+  "nearest_velocity_competitor": {
+    "model": "u/(1-u)",
+    "C": 0.0034217908908075,
+    "D": -0.0042607767502395,
+    "train_SSE": 1.3208536781088488e-06,
+    "heldout_SSE": 9.90552595352488e-06,
+    "heldout_RMSE": 0.0003212204259007
+  },
+  "acceptance": {
+    "median_relative_error_non_null_lte": 0.05,
+    "p95_relative_error_non_null_lte": 0.1,
+    "worst_relative_error_non_null_lte": 0.2,
+    "median_absolute_phase_error_rad_lte": 0.0002,
+    "p95_absolute_phase_error_rad_lte": 0.0005,
+    "dorian_velocity_law_must_have_lowest_heldout_SSE": true,
+    "weak_sideband_H_convergence_abs_lte": 1e-07
+  },
+  "evidence_boundary": "Numerical/theoretical only. No experimental isolation, insertion loss, efficiency, gain, or hardware nonreciprocity claim."
+}
