@@ -1,0 +1,163 @@
+name: Publish CRTFE-HCM v1.1.0
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-crtfe-v1.1.0.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout tagged source candidate
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up frozen Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+
+      - name: Install frozen numerical environment
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r releases/v1.1.0/environment/requirements-lock.txt
+
+      - name: Assemble clean-room bundle and frozen split
+        shell: bash
+        run: |
+          set -euo pipefail
+          B='dist/CRTFE-HCM-v1.1.0-reproducibility-release'
+          rm -rf dist
+          mkdir -p "$B"
+          cp -a releases/v1.1.0/. "$B/"
+          mkdir -p "$B/protocol" "$B/data/expected" "$B/data/raw" "$B/data/known_failure/variable_K_fixed_fm" "$B/docs"
+
+          cp protocol/CRTFE-HCM-TRANSFERABILITY-PROTOCOL-FIXED-K-2026-09-10.json "$B/protocol/transferability_protocol_fixedK.json"
+
+          BUNDLE="$B" python - <<'PY'
+          import itertools, json, os
+          from pathlib import Path
+          import numpy as np
+          b=Path(os.environ['BUNDLE'])
+          p=json.loads((b/'protocol/transferability_protocol_fixedK.json').read_text())
+          tr=p['training_cartesian']
+          def case(N,z,d,r,u):
+              return {'N':int(N),'ZL':float(z[0]),'ZR':float(z[1]),'delta_deg':float(d),'r':float(r),'u':float(u)}
+          train=[case(N,z,d,r,u) for N,z,d,r,u in itertools.product(tr['N'],tr['Z_pairs_ohm'],tr['delta_deg'],tr['r_f0_over_fm'],tr['u'])]
+          hp=p['heldout_population']
+          pop=[case(N,z,d,r,u) for N,z,d,r,u in itertools.product(hp['N'],hp['Z_pairs_ohm'],hp['delta_deg'],hp['r_f0_over_fm'],hp['u'])]
+          rng=np.random.default_rng(p['heldout_sampling']['seed'])
+          sel=rng.choice(len(pop),size=p['heldout_sampling']['number_of_device_conditions'],replace=False)
+          held=[pop[int(i)] for i in sel]
+          (b/'protocol/heldout_split_fixedK.json').write_text(json.dumps({'seed':p['heldout_sampling']['seed'],'training':train,'heldout':held},indent=2))
+          PY
+
+          SPLIT_SHA=$(sha256sum "$B/protocol/heldout_split_fixedK.json" | awk '{print $1}')
+          test "$SPLIT_SHA" = '1abef1d3586e937fd57049719cd3f29cd8495bb80ab4d66eff64beb343e24123'
+
+          cp data/CRTFE-HCM-fixedK-model-selection-heldout-2026-09-10.csv "$B/data/expected/model_selection_heldout.csv"
+          cp data/CRTFE-HCM-fixedK-score-analytic-C-fixed-2026-09-10.csv "$B/data/expected/score_analytic_C_fixed.csv"
+          cp data/CRTFE-HCM-fixedK-score-one-time-fit-2026-09-10.csv "$B/data/expected/score_one_time_fit.csv"
+          cp data/CRTFE-HCM-fixedK-length-deembedding-summary-2026-09-10.csv "$B/data/expected/length_deembedding_summary.csv"
+          cp data/CRTFE-HCM-fixedK-termination-summary-2026-09-10.csv "$B/data/expected/termination_summary.csv"
+          cp data/CRTFE-HCM-fixedK-symmetry-controls-2026-09-10.csv "$B/data/expected/symmetry_controls.csv"
+          cp data/CRTFE-HCM-fixedK-H-convergence-2026-09-10.csv "$B/data/expected/H_convergence.csv"
+          cp data/CRTFE-HCM-fixedK-heldout-predictions-2026-09-10.csv "$B/data/expected/heldout_predictions.csv" 2>/dev/null || true
+
+          for f in \
+            docs/CRTFE-HCM-TRANSFERABILITY-STRESS-TEST-2026-09-10.md \
+            docs/CRTFE-HCM-NEAR-LUMINAL-FLOQUET-CLASSIFICATION-2026-09-10.md \
+            docs/CRTFE-HCM-NEAR-LUMINAL-LOSS-DISPERSION-THRESHOLD-2026-09-10.md \
+            docs/CRTFE-HCM-NEAR-LUMINAL-NONLINEAR-SATURATION-2026-09-10.md; do
+            if [[ -f "$f" ]]; then cp "$f" "$B/docs/"; fi
+          done
+
+          base64 -d "$B/CLEAN_ROOM_REPRODUCTION_BRIEF.pdf.b64" > "$B/CRTFE-HCM_CLEAN_ROOM_REPRODUCTION_BRIEF_v1.1.0.pdf"
+          rm "$B/CLEAN_ROOM_REPRODUCTION_BRIEF.pdf.b64"
+          printf '%s\n' "$GITHUB_SHA" > "$B/SOURCE_COMMIT"
+          chmod +x "$B/reproduce.sh"
+
+          cat > "$B/data/known_failure/variable_K_fixed_fm/README.md" <<'EOF'
+          # Known-invalid control path: fixed f_m with varying K
+
+          This path is retained as a negative control. Holding `f_m` fixed while varying `K` to change `u` changes `Kd` and therefore changes the discrete spatial modulation geometry. At `u=0.05` the failed implementation reached about 270 degrees per cell and failed held-out scoring. It must not be used to assess the fixed-geometry Dorian velocity law. The accepted path holds `Kd=pi/6` fixed and varies `f_m` to set `u`.
+          EOF
+
+      - name: Full one-command reproduction and acceptance verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          B='dist/CRTFE-HCM-v1.1.0-reproducibility-release'
+          CRTFE_SKIP_INSTALL=1 CRTFE_WORKERS=4 "$B/reproduce.sh" | tee "$B/FULL_REPRODUCTION_VERIFICATION.txt"
+          cp "$B/reproduced/condition_summary_fixedK.csv" "$B/data/raw/condition_summary_fixedK.csv"
+          gzip -n -c "$B/reproduced/full_sidebands_fixedK.csv" > "$B/data/raw/full_sidebands_fixedK.csv.gz"
+          cp "$B/reproduced/heldout_predictions.csv" "$B/data/expected/heldout_predictions.csv"
+          rm -rf "$B/reproduced"
+
+      - name: Freeze manifest and deterministic archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          B='dist/CRTFE-HCM-v1.1.0-reproducibility-release'
+          cat > "$B/RELEASE_MANIFEST.md" <<EOF
+          # CRTFE-HCM v1.1.0 Release Manifest
+
+          **Tagged source commit:** \`$GITHUB_SHA\`  
+          **Version:** \`1.1.0\`  
+          **Related prior DOI:** \`10.5281/zenodo.22681634\`  
+          **Version-specific Zenodo DOI:** pending mint; do not preassign.
+
+          The archive contains the exact 48-C/48-L topology, frozen numerical environment, fixed-K protocol and held-out split, solver/reproduction/verifier code, raw full complex h=-15..15 sideband output, expected outputs, mandatory-control evidence, the known-invalid fixed-f_m/varying-K path, clean-room brief in Markdown and two-page PDF form, and the one-command reproduction workflow.
+
+          The sibling \`.sha256\` GitHub Release asset is authoritative for the archive byte digest.
+          EOF
+
+          (
+            cd "$B"
+            find . -type f ! -name MANIFEST_SHA256.txt -print0 | sort -z | xargs -0 sha256sum > MANIFEST_SHA256.txt
+          )
+
+          BUNDLE="$B" python - <<'PY'
+          from pathlib import Path
+          import os, zipfile
+          b=Path(os.environ['BUNDLE'])
+          out=b.parent/'CRTFE-HCM-v1.1.0-reproducibility-release.zip'
+          fixed=(2026,9,10,12,0,0)
+          with zipfile.ZipFile(out,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+              for p in sorted(x for x in b.rglob('*') if x.is_file()):
+                  rel=Path(b.name)/p.relative_to(b)
+                  info=zipfile.ZipInfo(str(rel),fixed)
+                  info.compress_type=zipfile.ZIP_DEFLATED
+                  info.external_attr=0o100644 << 16
+                  z.writestr(info,p.read_bytes())
+          PY
+
+          sha256sum dist/CRTFE-HCM-v1.1.0-reproducibility-release.zip > dist/CRTFE-HCM-v1.1.0-reproducibility-release.zip.sha256
+          cat dist/CRTFE-HCM-v1.1.0-reproducibility-release.zip.sha256
+
+      - name: Create immutable GitHub v1.1.0 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP='dist/CRTFE-HCM-v1.1.0-reproducibility-release.zip'
+          SHA='dist/CRTFE-HCM-v1.1.0-reproducibility-release.zip.sha256'
+          PDF='dist/CRTFE-HCM-v1.1.0-reproducibility-release/CRTFE-HCM_CLEAN_ROOM_REPRODUCTION_BRIEF_v1.1.0.pdf'
+          MD='dist/CRTFE-HCM-v1.1.0-reproducibility-release/CLEAN_ROOM_REPRODUCTION_BRIEF.md'
+          if gh release view v1.1.0 >/dev/null 2>&1; then
+            gh release upload v1.1.0 "$ZIP" "$SHA" "$PDF" "$MD" --clobber
+          else
+            gh release create v1.1.0 "$ZIP" "$SHA" "$PDF" "$MD" \
+              --target "$GITHUB_SHA" \
+              --title 'CRTFE-HCM v1.1.0 — Dorian Phase Relation Reproducibility Release' \
+              --notes-file releases/v1.1.0/RELEASE_NOTES.md
+          fi
