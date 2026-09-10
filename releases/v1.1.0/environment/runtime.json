@@ -1,0 +1,5 @@
+{
+  "python": "3.13.5",
+  "platform": "Linux x86_64",
+  "source_environment_note": "Versions are the environment in which the reference outputs were generated. Other versions may reproduce within tolerances but are not the frozen reference environment."
+}
