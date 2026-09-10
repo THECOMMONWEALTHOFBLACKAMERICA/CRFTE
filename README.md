@@ -31,6 +31,23 @@ As of 10 September 2026, CRTFE-HCM is being developed as an openly documented re
 
 See: [CRTFE-HCM — Open Technical Disclosure: Physics, Floquet Validation, and Constitutive-State Control](docs/CRTFE-HCM-OPEN-TECHNICAL-DISCLOSURE-2026-09-10.md).
 
+### Energy and wave-action falsification gate
+
+A terminated finite-ladder calculation has now been used to test explicit modulation-pump work and Floquet wave-action conservation independently of the earlier bulk propagation retrieval.
+
+At the representative V1 point (`N=48`, `M=4`, `m_e=m_m=0.10`, `f_m=3 MHz`, `f_0=150 kHz`, 50-ohm terminations), the direct time-domain energy balance closes to a relative residual of approximately `5.75e-11` after settling. A single-input action-flux calculation gives an outgoing/incoming action ratio of approximately `0.999999965`, and a central multi-input photon-flux-normalized Gram test converges toward the expected pseudounitary relation as output-sideband coverage and numerical resolution are increased.
+
+The same work also records an important limitation: the existing near-luminal transfer-matrix branch tracker does **not** yet produce a stable H-converged gap width or attenuation interval. No near-luminal directional bandgap is claimed.
+
+- [Finite-Ladder Energy and Wave-Action Falsification Gate](docs/CRTFE-HCM-ENERGY-WAVE-ACTION-GATE-2026-09-10.md)
+- [Near-Luminal H-Convergence Warning](docs/CRTFE-HCM-NEAR-LUMINAL-H-CONVERGENCE-WARNING-2026-09-10.md)
+- [Energy-gate script](analysis/crtfe_hcm_energy_gate.py)
+- [Floquet scattering / action-flux Gram script](analysis/crtfe_hcm_floquet_smatrix_gate.py)
+- [Energy and wave-action numerical results](data/CRTFE-HCM-energy-wave-action-gate-results-2026-09-10.csv)
+- [Near-luminal convergence data](data/CRTFE-HCM-near-luminal-H-convergence-2026-09-10.csv)
+
+These remain numerical results. No experimental isolation, insertion-loss, efficiency, or gain claim is made.
+
 ## Long-range aerospace objective
 
 The long-range CRFTE objective remains research into large-area atmospheric electromagnetic momentum transfer without conventional rotors, propellers, turbines, or mechanical compressors.
