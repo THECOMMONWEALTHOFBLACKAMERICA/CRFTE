@@ -46,6 +46,44 @@ The final pre-publication version explicitly states that:
 - **v3 Zenodo DOI:** [10.5281/zenodo.22731518](https://doi.org/10.5281/zenodo.22731518) *(reserved; registered when Zenodo publishes the record)*
 
 
+### Generalized Dorian Phase Relation v0.4 — referee-ready working extension
+
+A separately versioned post-v3 working theorem now extends the sinusoidal result to finite multi-harmonic traveling constitutive spectra while preserving the published v3.0.0 theorem as the fixed sinusoidal baseline.
+
+For **nonnegative co-phased finite spectra**, the generalized construction proves:
+
+- an exact multi-harmonic first-return kernel derived directly from the constitutive matrix;
+- the active-harmonic phase ceiling
+  \[
+  |r|\le H_*\left\lfloor\frac n2\right\rfloor;
+  \]
+- an exact signed zero-sum criterion for odd-order onset;
+- coefficientwise-positive phase harmonics and the exact phase-uniform truncation equality;
+- absolute convergence on the positive spectral branch
+  \[
+  u^2(1+A)(1+B)<1.
+  \]
+
+For **arbitrary intrinsic Fourier phases**, the exact equality is replaced by the spectral-envelope bound
+
+\[
+\sup_\delta |R_N(\delta)|\le R_{N,+}(0),
+\]
+
+together with a full integer relation-lattice holonomy criterion for phase-flat versus phase-frustrated spectra.
+
+The generalized package completed an adversarial **B → A** repair cycle. The independent re-audit reproduced all three executable suites, found no in-hypothesis counterexample, and returned **A — theorem-ready**. This is an external adversarial mathematical audit, not journal peer review, and it does not modify the published/reserved v3 Zenodo DOI lineage.
+
+- [Referee-ready generalized theorem v0.4](docs/DORIAN-GENERALIZED-DPR-WORKING-THEOREM-v0.4.md)
+- [Independent A-verdict re-audit](docs/DORIAN-GENERALIZED-DPR-EXTERNAL-READUDIT-2026-09-13.md)
+- [v0.4 repository status](releases/DORIAN-GENERALIZED-DPR-v0.4-STATUS.md)
+- [Specialist referee request](docs/DORIAN-GENERALIZED-DPR-SPECIALIST-REFEREE-REQUEST-v0.4.md)
+- [Baseline generalized audit](analysis/audit_generalized_dpr.py)
+- [Adversarial exact audit v0.2](analysis/audit_adversarial_v02.py)
+- [Repair-specific audit v0.3](analysis/audit_repairs_v03.py)
+- [Frozen PASS run log](analysis/DORIAN-GENERALIZED-DPR-AUDIT-RUN-LOG-v0.4.txt)
+- **Frozen v0.4 audit package SHA-256:** `e3cffc1a2be90f3a7b5100148728afe121fd7a0e59885c6619c32c6c5bc72517`
+
 ### All-orders phase-uniform theorem — 12 September 2026
 
 The Dorian Phase Relation has now been extended from its weak second-order engineering form to an **all-orders phase-uniform truncation theorem for the stated local sinusoidal continuum model**.
