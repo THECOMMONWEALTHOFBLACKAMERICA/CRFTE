@@ -31,6 +31,8 @@ The naming boundary is explicit: relative electric/magnetic modulation phase as 
 
 The current theorem manuscript extends the weak-order note to an **all-orders phase-uniform truncation theorem for the stated local sinusoidal continuum model**. The proof uses the exact Fourier carrier identity, a carrier Schur complement, a sign-fixing internal gauge, explicit \(\eta\)-graded external vertices, and a positive first-return representation.
 
+The final pre-publication version also consolidates four verification checks: exact O(2), exact unequal-depth O(4), the exact sparse sign audit through O(20), and numerical a <-> b symmetry of the unequal-depth validity map.
+
 The final pre-publication version explicitly states that:
 
 - \(T_{\mathsf Q}=\mathsf Q T\mathsf Q\), so carrier revisits are excluded from the interior resolvent by construction;
@@ -40,6 +42,7 @@ The final pre-publication version explicitly states that:
 
 - [All-orders theorem source](docs/DORIAN-PHASE-RELATION-ALL-ORDERS-THEOREM-2026-09-12.md)
 - [v3.0.0 release notes](releases/DORIAN-PHASE-RELATION-v3.0.0-RELEASE-NOTES.md)
+- [Publication QA / OCR artifact markup](docs/DORIAN-PHASE-RELATION-PUBLICATION-QA-v3.md)
 - **v3 Zenodo DOI:** pending publication/reservation
 
 
