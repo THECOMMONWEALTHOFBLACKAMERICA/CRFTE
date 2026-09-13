@@ -1,0 +1,11 @@
+modulation_order,max_abs_q_harmonic,sparse_monomials,positive_coefficients_in_Q_term,negative_coefficients_in_Q_term,positivity_of_u_xi_term_pass,smallest_abs_nonzero_coefficient
+2,1,2,0,2,True,1/4
+4,2,8,0,8,True,1/16
+6,3,26,0,26,True,1/64
+8,4,58,0,58,True,1/256
+10,5,108,0,108,True,1/1024
+12,6,180,0,180,True,1/4096
+14,7,278,0,278,True,1/16384
+16,8,406,0,406,True,1/65536
+18,9,568,0,568,True,1/262144
+20,10,768,0,768,True,1/1048576
