@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use the CRFTE/CRTFE-HCM Dorian Phase Relation results, please cite the preferred publication below."
+title: "CRFTE / CRTFE-HCM Research Program"
+type: software
+authors:
+  - family-names: "Martin-Smith"
+    given-names: "Dorian"
+repository-code: "https://github.com/THECOMMONWEALTHOFBLACKAMERICA/CRFTE"
+license: "CC-BY-4.0"
+preferred-citation:
+  type: article
+  title: "The Dorian Phase Relation: An All-Orders Phase-Uniform Truncation Theorem for a Local Sinusoidal Space-Time Continuum"
+  authors:
+    - family-names: "Martin-Smith"
+      given-names: "Dorian"
+  year: 2026
+  month: 9
+  version: "3.0.0"
+  notes: "The theorem scope is the stated local sinusoidal continuum model on the phase-uniform regular subluminal branch. A new Zenodo version DOI is pending publication; the earlier mathematical note is DOI 10.5281/zenodo.22681634."
