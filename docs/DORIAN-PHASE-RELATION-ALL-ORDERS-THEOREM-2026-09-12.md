@@ -3,7 +3,8 @@
 **Author:** Dorian Martin-Smith  
 **Version:** 3.0.0  
 **Date:** 12 September 2026  
-**Program:** CRFTE / CRTFE-HCM
+**Program:** CRFTE / CRTFE-HCM  
+**Reserved Zenodo DOI:** [10.5281/zenodo.22731518](https://doi.org/10.5281/zenodo.22731518)
 
 ## Abstract
 
