@@ -43,7 +43,7 @@ The final pre-publication version explicitly states that:
 - [All-orders theorem source](docs/DORIAN-PHASE-RELATION-ALL-ORDERS-THEOREM-2026-09-12.md)
 - [v3.0.0 release notes](releases/DORIAN-PHASE-RELATION-v3.0.0-RELEASE-NOTES.md)
 - [Publication QA / OCR artifact markup](docs/DORIAN-PHASE-RELATION-PUBLICATION-QA-v3.md)
-- **v3 Zenodo DOI:** pending publication/reservation
+- **v3 Zenodo DOI:** [10.5281/zenodo.22731518](https://doi.org/10.5281/zenodo.22731518) *(reserved; registered when Zenodo publishes the record)*
 
 
 ### All-orders phase-uniform theorem — 12 September 2026
