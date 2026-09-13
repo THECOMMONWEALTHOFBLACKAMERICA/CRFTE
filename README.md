@@ -230,6 +230,29 @@ The direct energy-balance and Floquet pseudounitary calculations are classified 
 
 The full-sideband transferable reduced effective-medium model remains open. The near-luminal multiband regime remains unresolved, and no hardware RF-performance claim has been demonstrated.
 
+### DPR-6 hardware falsification pre-registration — 13 September 2026
+
+Before any full two-channel modulated hardware phase sweep, the DPR-6 bench experiment has been **pre-registered and cryptographically frozen**.
+
+The protocol fixes in advance:
+
+- the primary phase law `A cos(delta) + B`;
+- the measured-hardware definition of `u = Omega/(K c_m)`;
+- the requirement to measure `c_m` before interpreting DPR data;
+- the regularity-domain check;
+- the phase sweep and quadrature-null predictions;
+- the one-channel, static, direction-reversal, phase-reversal, linearity, and termination controls;
+- the competing velocity models;
+- the noise-floor definition;
+- explicit success and falsification criteria;
+- raw-data retention and no-moving-goalposts rules.
+
+- [DPR-6 pre-registered bench falsification protocol v0.1](protocol/DPR-6-HARDWARE-FALSIFICATION-PROTOCOL-v0.1.md)
+- [Protocol SHA-256](protocol/DPR-6-HARDWARE-FALSIFICATION-PROTOCOL-v0.1.sha256)
+- **Frozen SHA-256:** `717584026ddf0e426add53807c96433441f453318cc53abe430f68bda2f06dc2`
+
+This timestamped protocol exists specifically so later hardware results can be judged against predictions written **before** the modulated experiment was run.
+
 ## Long-range aerospace objective
 
 The long-range CRFTE objective remains research into large-area atmospheric electromagnetic momentum transfer without conventional rotors, propellers, turbines, or mechanical compressors.
