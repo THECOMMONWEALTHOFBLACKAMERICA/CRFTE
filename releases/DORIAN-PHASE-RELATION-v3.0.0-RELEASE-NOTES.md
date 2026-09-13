@@ -41,3 +41,17 @@ The final manuscript makes three proof obligations explicit:
 - The exact unequal-depth in-phase coefficient is included explicitly in the manuscript, matching the abstract.
 
 The branch inequality is independent of relative phase \(\delta\), making the meaning of **phase-uniform** explicit.
+
+
+## Consolidated verification summary
+
+The final theorem manuscript now groups four independent/structurally distinct checks in one place:
+
+- exact recovery of the earlier O(2) Dorian relation from the shortest first-return paths;
+- exact recovery of the independently derived general unequal-depth O(4) term;
+- exact sparse sign audit through O(20), with zero wrong-sign monomial coefficients at every audited order;
+- numerical `a <-> b` symmetry of the unequal-depth validity map.
+
+The unequal-depth validity caption also states explicitly that `worst_case_phase_deg = 0.0` is imposed by the theorem, not discovered by an empirical phase scan.
+
+See also: [publication QA markup](../docs/DORIAN-PHASE-RELATION-PUBLICATION-QA-v3.md).
