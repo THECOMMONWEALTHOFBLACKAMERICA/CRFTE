@@ -314,3 +314,14 @@ The discrete ladder tomography/refinement studies in this repository are numeric
 ## Prior record
 
 Earlier weak-order Dorian/CRTFE-HCM mathematical note: Zenodo DOI **10.5281/zenodo.22681634**.
+
+
+## Supplementary phase-uniform validity maps
+
+The theorem identifies \\(\\delta=0\\) as the exact worst-case phase for the absolute truncation remainder. Therefore the in-phase threshold tables below are conservative validity boundaries for **all** relative phases on the regular branch.
+
+- [Equal-depth validity thresholds](../data/Dorian_validity_thresholds_v3.csv)
+- [Unequal-depth validity thresholds](../data/Dorian_unequal_depth_validity_thresholds_v3.csv)
+- [Validity-map interpretation and captions](DORIAN-PHASE-RELATION-VALIDITY-MAPS-v3.md)
+
+These numerical maps quantify the usable domains of the \\(O(2)\\), \\(O(4)\\), and \\(O(6)\\) truncations; they do not enlarge the theorem's scope.
