@@ -1,6 +1,6 @@
 # CRFTE / CRTFE Research Program
 
-> **Current status — 10 September 2026:** early-stage research only. No working lift hardware or flight vehicle has been demonstrated.
+> **Current status — 12 September 2026:** early-stage research only. No working lift hardware or flight vehicle has been demonstrated.
 
 ## Current research priority
 
@@ -26,6 +26,38 @@ The naming boundary is explicit: relative electric/magnetic modulation phase as 
 
 - [CRTFE-HCM Continuous-Phase Mathematical Note — Dorian Martin-Smith, 9 September 2026](docs/CRTFE-HCM-CONTINUOUS-PHASE-MATHEMATICAL-NOTE-2026-09-09.md)
 - **Zenodo DOI:** [10.5281/zenodo.22681634](https://doi.org/10.5281/zenodo.22681634)
+
+### All-orders phase-uniform theorem — 12 September 2026
+
+The Dorian Phase Relation has now been extended from its weak second-order engineering form to an **all-orders phase-uniform truncation theorem for the stated local sinusoidal continuum model**.
+
+For
+\[
+E(\theta)=1+\eta a\cos\theta,\qquad
+M(\theta)=1+\eta b\cos(\theta+\delta),
+\]
+with positive modulation depths on the phase-uniform regular subluminal branch
+\[
+0<u<\frac{1}{\sqrt{(1+a)(1+b)}},
+\]
+the exact laboratory-frame coupling admits an absolutely convergent positive first-return expansion with explicit \(\eta\)-grading. The construction establishes:
+
+- all odd total modulation orders vanish;
+- at total order \(2N\), the phase dependence contains harmonics only through \(\cos(N\delta)\);
+- the phase-harmonic coefficients are nonnegative;
+- for every finite even-order truncation, the maximum absolute phase-dependent remainder occurs at the in-phase condition \(\delta=0\).
+
+The proof explicitly derives the Fourier-space carrier/complement Schur complement, the two external \(O(\eta)\) carrier-sideband vertices, the positive interior transition operator, the absolute-convergence majorant, and the mapping from the Schur complement back to \(u\tilde\xi\).
+
+This theorem is deliberately narrow. It does **not** by itself apply to arbitrary waveforms, finite staggered L/C ladders, lossy/dispersive/nonlinear or spatially nonlocal devices, near-luminal multiband regimes, finite-frequency discrete Floquet systems outside the continuum limit, or hardware.
+
+- [All-orders theorem note](docs/DORIAN-PHASE-RELATION-ALL-ORDERS-THEOREM-2026-09-12.md)
+- [Positive first-return symbolic certificate](analysis/dorian_positive_first_return_lemma_certificate.py)
+- [Exact O(20) coefficient-sign audit](data/DORIAN-PHASE-RELATION-O20-SIGN-AUDIT-2026-09-12.csv)
+- [v3.0.0 release notes](releases/DORIAN-PHASE-RELATION-v3.0.0-RELEASE-NOTES.md)
+- [Zenodo v3.0.0 metadata sheet](releases/DORIAN-PHASE-RELATION-v3.0.0-ZENODO-METADATA.md)
+
+The earlier public mathematical note remains identified by Zenodo DOI **10.5281/zenodo.22681634**. The new v3.0.0 Zenodo version DOI is pending publication.
 
 ### Open technical disclosure
 
