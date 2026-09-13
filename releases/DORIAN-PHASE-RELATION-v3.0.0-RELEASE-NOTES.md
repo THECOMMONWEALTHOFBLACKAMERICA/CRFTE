@@ -1,7 +1,8 @@
 # Dorian Phase Relation v3.0.0 — Release notes
 
 **Date:** 12 September 2026  
-**Author:** Dorian Martin-Smith
+**Author:** Dorian Martin-Smith  
+**Reserved Zenodo DOI:** [10.5281/zenodo.22731518](https://doi.org/10.5281/zenodo.22731518)
 
 ## Major result
 
