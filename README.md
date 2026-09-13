@@ -27,6 +27,22 @@ The naming boundary is explicit: relative electric/magnetic modulation phase as 
 - [CRTFE-HCM Continuous-Phase Mathematical Note — Dorian Martin-Smith, 9 September 2026](docs/CRTFE-HCM-CONTINUOUS-PHASE-MATHEMATICAL-NOTE-2026-09-09.md)
 - **Zenodo DOI:** [10.5281/zenodo.22681634](https://doi.org/10.5281/zenodo.22681634)
 
+### Dorian Phase Relation v3.0.0 — all-orders theorem
+
+The current theorem manuscript extends the weak-order note to an **all-orders phase-uniform truncation theorem for the stated local sinusoidal continuum model**. The proof uses the exact Fourier carrier identity, a carrier Schur complement, a sign-fixing internal gauge, explicit \(\eta\)-graded external vertices, and a positive first-return representation.
+
+The final pre-publication version explicitly states that:
+
+- \(T_{\mathsf Q}=\mathsf Q T\mathsf Q\), so carrier revisits are excluded from the interior resolvent by construction;
+- the phase-independent majorant condition \(u^2(1+a)(1+b)<1\) establishes complement-block invertibility and absolute convergence for every \(\delta\);
+- the exact unequal-depth in-phase coefficient is included in the manuscript;
+- the theorem does **not** extend by itself to arbitrary waveforms, finite staggered ladders, lossy/dispersive devices, near-luminal multiband regimes, or hardware.
+
+- [All-orders theorem source](docs/DORIAN-PHASE-RELATION-ALL-ORDERS-THEOREM-2026-09-12.md)
+- [v3.0.0 release notes](releases/DORIAN-PHASE-RELATION-v3.0.0-RELEASE-NOTES.md)
+- **v3 Zenodo DOI:** pending publication/reservation
+
+
 ### All-orders phase-uniform theorem — 12 September 2026
 
 The Dorian Phase Relation has now been extended from its weak second-order engineering form to an **all-orders phase-uniform truncation theorem for the stated local sinusoidal continuum model**.
