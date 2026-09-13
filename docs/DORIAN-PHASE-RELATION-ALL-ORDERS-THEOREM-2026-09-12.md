@@ -325,3 +325,17 @@ The theorem identifies \\(\\delta=0\\) as the exact worst-case phase for the abs
 - [Validity-map interpretation and captions](DORIAN-PHASE-RELATION-VALIDITY-MAPS-v3.md)
 
 These numerical maps quantify the usable domains of the \\(O(2)\\), \\(O(4)\\), and \\(O(6)\\) truncations; they do not enlarge the theorem's scope.
+
+
+## Verification summary
+
+The all-orders theorem has been cross-checked at four independent or structurally distinct points:
+
+- the shortest two-step first-return paths reproduce the earlier weak-order Dorian relation exactly;
+- the length-four first-return paths reproduce the independently derived general unequal-depth O(4) perturbation term, including the constant and cos(2 delta) content;
+- the exact sparse rational recurrence audit through O(20) reports zero wrong-sign monomial coefficients at every audited order; this audit is supplementary and is not the theorem's logical basis;
+- the unequal-depth numerical validity map is symmetric under exchange a <-> b to numerical precision, as required by the exact continuum equations.
+
+The `worst_case_phase_deg = 0.0` values in the unequal-depth validity table are theorem-predicted worst-case phases, not outputs of an empirical phase scan.
+
+See [publication QA markup](DORIAN-PHASE-RELATION-PUBLICATION-QA-v3.md) for the final OCR/extraction-artifact review.
