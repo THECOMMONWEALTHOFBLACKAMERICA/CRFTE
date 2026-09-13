@@ -30,3 +30,9 @@ If Zenodo permits **New version**, use that function and let Zenodo manage the v
 ## Recommended files
 
 Primary PDF, manuscript Markdown source, symbolic certificate, O(8)/O(10) formulas, O(20) audit CSV, discrete tomography/refinement CSVs, CITATION.cff, license notice, checksum file, and release README.
+
+## Reserved DOI
+
+**10.5281/zenodo.22731518**
+
+This DOI is reserved in the Zenodo new-version draft and will be registered when the record is published.
