@@ -8,9 +8,9 @@ Please do not assume the A verdict is correct. Independently review the theorem.
 
 Run the three audit scripts in `analysis/`:
 
-- `dorian_generalized_dpr_audit_v01.py`
-- `dorian_generalized_dpr_audit_adversarial_v02.py`
-- `dorian_generalized_dpr_audit_repairs_v03.py`
+- `analysis/audit_generalized_dpr.py`
+- `analysis/audit_adversarial_v02.py`
+- `analysis/audit_repairs_v03.py`
 
 ## Primary manuscript
 
