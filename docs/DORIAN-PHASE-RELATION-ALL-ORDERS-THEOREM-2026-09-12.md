@@ -52,6 +52,8 @@ Fourier multiplication by \(L(\theta)\) gives a bi-infinite block-Toeplitz opera
 P\mathcal L^{-1}P=\langle L^{-1}\rangle.
 \]
 
+On the phase-uniform branch, the majorant condition derived below gives \(\rho(T_{\rm abs})<1\). Since \(T_{\mathsf Q}\) is the carrier-excluded restriction of the same transition operator, its Neumann series converges at \(\eta=1\); hence \(I-T_{\mathsf Q}\) and \(\mathcal L_{\mathsf Q\mathsf Q}=\mathcal D_{\mathsf Q}(I-T_{\mathsf Q})\) are invertible throughout the stated branch. The convergence proof uses only the explicit transition blocks and their positive majorant, so this invocation is not circular.
+
 The carrier Schur complement
 
 \[
@@ -69,6 +71,72 @@ therefore satisfies
 \qquad
 Q=\mathcal S_{11}.
 \]
+
+## Exact unequal-depth in-phase coefficient
+
+At the physical grading point \(\eta=1\) and \(\delta=0\), let \(c=\cos\theta\) and keep \(a\) and \(b\) unequal. Then
+
+\[
+d(c)=\Delta-u^2(a+b)c-u^2ab c^2
+=\Delta(1-\lambda_+c)(1-\lambda_-c),
+\]
+
+with
+
+\[
+\lambda_\pm=
+\frac{u^2(a+b)\pm\sqrt{u^4(a+b)^2+4\Delta u^2ab}}{2\Delta}.
+\]
+
+Let
+
+\[
+G_\pm=(1-\lambda_\pm^2)^{-1/2},
+\qquad
+L_\lambda=\lambda_+-\lambda_-,
+\]
+
+and define
+
+\[
+J_0=
+\frac{\lambda_+G_+-\lambda_-G_-}{\Delta L_\lambda},
+\]
+
+\[
+I_1=
+\frac{G_+-G_-}{\Delta L_\lambda},
+\]
+
+\[
+I_2=
+\frac{(G_+-1)/\lambda_+-(G_--1)/\lambda_-}{\Delta L_\lambda},
+\]
+
+with any apparent \(\lambda_\pm=0\) singularity interpreted by continuity. Set
+
+\[
+\mu_c=I_1/J_0,
+\qquad
+\sigma_c^2=I_2/J_0-\mu_c^2.
+\]
+
+Because \(E=1+ac\) and \(M=1+bc\) are affine in the same scalar \(c\),
+
+\[
+C_w=ab\sigma_c^2,
+\]
+
+and therefore
+
+\[
+\boxed{
+\tilde\xi_0(a,b,u)=
+\frac{uJ_0ab\sigma_c^2}{1+u^2J_0ab\sigma_c^2}
+}.
+\]
+
+This removes the earlier abstract/content mismatch; the all-orders theorem itself does not require equal depths.
 
 ## Positive first-return lemma with explicit \(\eta\)-grading
 
@@ -103,7 +171,15 @@ bq^{-1}&\beta a
 \quad q=e^{i\delta}.
 \]
 
-Every physical modulation vertex carries one explicit factor of \(\eta\). With carrier/complement transition maps \(T_{0\mathsf Q},T_{\mathsf Q0},T_{\mathsf Q}\),
+Every physical modulation vertex carries one explicit factor of \(\eta\). Let \(T\) be the full nearest-neighbor transition operator and define
+
+\[
+T_{\mathsf Q}=\mathsf Q T\mathsf Q.
+\]
+
+Thus every interior factor \(T_{\mathsf Q}^n\) acts wholly inside the non-carrier subspace. Any intermediate visit to harmonic zero is projected out, so the Schur-complement series contains first-return paths by construction: the carrier appears only at the initial departure and final return.
+
+With carrier/complement transition maps \(T_{0\mathsf Q},T_{\mathsf Q0},T_{\mathsf Q}\),
 
 \[
 \widetilde{\mathcal L}_{0\mathsf Q}=-\eta D T_{0\mathsf Q},
@@ -195,7 +271,7 @@ equivalent to
 u^2(1+a)(1+b)<1.
 \]
 
-Thus the first-return expansion converges absolutely at the physical point \(\eta=1\) on the complete phase-uniform regular subluminal branch.
+The inequality is independent of \(\delta\); this is the precise sense in which the branch is **phase-uniform**. Thus the first-return expansion converges absolutely at the physical point \(\eta=1\) for every relative phase on the complete regular subluminal branch, and this convergence establishes the complement-block invertibility used above.
 
 ## All-orders harmonic structure
 
